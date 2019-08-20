@@ -4,6 +4,6 @@ title: About
 permalink: /about/
 ---
 
-I'm Programmer for Python & Django. I've made quite a few web apps, especially on Django. Now, I am doing more on backend.
+My background is in industrial engineering and computer science. My research interests are: Multi-agent Systems, Reinforcement Learning, and Game Theory. 
 
-email: agus[at]python.web.id
+email: yj.shin[at]kasit[dot]ac[dot]kr
