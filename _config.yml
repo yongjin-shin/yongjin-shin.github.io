@@ -1,8 +1,8 @@
 title: Stack Problems
 description: My Personal Stack Problems
 author: Agus Makmun
-github: https://github.com/agusmakmun
-about: I'm Programmer for Python & Django. I've made quite a few web apps, especially on Django.
+github: https://github.com/yongjin-shin
+about: I'm a grad student at KAIST in South Korea.
 disqus_shortname: stackproblems
 google_analytics: UA-XXXXXXXX-Y
 
@@ -15,16 +15,12 @@ collections:
     permalink: /project/:path/
 
 social:
-    - icon: fa-facebook
-      link: "#"
-    - icon: fa-twitter
-      link: "#"
     - icon: fa-linkedin
-      link: "#"
+      link: "https://www.linkedin.com/in/yongjin-shin-01309b20/"
     - icon: fa-stack-exchange
       link: "#"
     - icon: fa-github
-      link: "https://github.com/agusmakmun"
+      link: "https://github.com/yongjin-shin"
 
 share:
   twitter_username: github.io
@@ -35,10 +31,8 @@ urls:
       url: /about/
     - text: My Projects
       url: /projects/
-    - text: XML Feed
-      url: /feed.xml
 
-url: "https://agusmakmun.github.io"
+url: "https://yongjin-shin.github.io"
 baseurl: ""
 paginate: 20
 per_page: 20
