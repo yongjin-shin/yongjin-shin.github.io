@@ -1,11 +1,11 @@
 var store = [{
-        "title": "start-blogging",
-        "excerpt":"First Post ever!  ","categories": ["Blog"],
-        "tags": ["Blog"],
-        "url": "http://localhost:4000/blog/test/",
-        "teaser":null},{
-        "title": "성공하는 대학원생의 3가지 자질: 끈기, 고집 그리고 설득력",
-        "excerpt":"매년 가을, 대학원 신입생들이 온다. 나는 신입생들을 ~ 하기 때문에 Since I’m actively looking for Ph.D, “박사 졸업은 얼마나 걸리나요?”라는 질문을 매년 받는다. 나는 “대학원은 자네가 원하는 만큼 오래 다닐 수 있네”라고 답한다. 졸업에 필요한 자격 요건을 갖추는데에는 속도제한 따위는 없기 대문이다. 그러나 이 질문은 옳은 질문이라 할 수 없다....","categories": ["번역"],
+        "title": "[번역] 성공하는 대학원생의 3가지 자질: 끈기, 고집 그리고 설득력",
+        "excerpt":"대학원 생활을 시작하기 직전에 Matt Might 교수님의 블로그를 우연하게도 접하게되어서 글을 찬찬히 읽어보니 좋은 글들이 많이 있네요. 사실 블로그 시작해야지 하다가 이 글의 가장 마지막 문단을 통해 블로그를 만들어버렸습니다. 번역 오류나 부자연스러운 부분에 대한 지적은 언제든지 환영합니다. 원문: http://matt.might.net/articles/successful-phd-students/ 매년 가을, 대학원 신입생들이 온다. 나는 신입생들을 받고 있기 때문에, “박사...","categories": ["번역"],
         "tags": ["번역"],
         "url": "http://localhost:4000/%EB%B2%88%EC%97%AD/Translation1/",
+        "teaser":null},{
+        "title": "Ubuntu 18.04 설치",
+        "excerpt":"간만에 연구실 출근해서 컴퓨터에 우분투18.04+윈도우10 설치를 했습니다. 원래 맥북을 써왔는데 연구실에서 윈도우를 쓰려니 도무지 적응이 안되어서 벼르고 있던 우분투를 깔아버렸네요. 제대로 설치해보기는 처음인지라 한참을 헤매고 다녀서 오늘 하루 시간만 날려먹었네요. 설치에 도움이 되었던 자료들만 간략하게 정리를 해봅니다 (조만간 잘 못 만져서 갈아엎을 때 필요할 것 같으므로…) 우분투 설치: https://cupjoo.tistory.com/53 고정...","categories": ["Blog"],
+        "tags": ["팁","우분투"],
+        "url": "http://localhost:4000/blog/tip1/",
         "teaser":null}]
