@@ -294,6 +294,7 @@ defaults:
       comments: true
       share: true
       related: true
+	  mathjax: true
 
   # _pages
   - scope:
@@ -306,3 +307,4 @@ defaults:
       comments: false
       share: ture
       related: false
+	  mathjax: false
