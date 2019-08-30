@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Ubuntu 18.04 설치 - Such a Nomad Life</title>
-<meta name="description" content="간만에 연구실 출근해서 컴퓨터에 우분투18.04+윈도우10 설치를 했습니다. 원래 맥북을 써왔는데 연구실에서 윈도우를 쓰려니 도무지  적응이 안되어서 벼르고 있던 우분투를 깔아버렸네요.">
+<!-- begin _includes/seo.html --><title>[Summary] Multi-agent Systems-Chapter4 - Such a Nomad Life</title>
+<meta name="description" content="3장에서는 게임에 있어서 최적 솔루션이 무엇인가(혹은 Nash Euilibrium) 이외에 다른 대안이 없는지에 대해서다. 4장에서는 그 솔루션을 얻는데 있어 계산이 얼마나 복잡할 것인가에 대한 문제를 다루게 된다. 자연스럽게 가장 간단한 2명의 플레이어, 제로섬 normal-form게임으로부터 시작하여, general-sum게임과 n플레이어+general-sum게임으로까지 확장된다. 더불어 3장에서 살펴보았던 maxmin/minmax전략과 우위전략, correlated equilbria 전략까지 솔루션을 얻는데 얼마나 복잡한지에 대한 탐구가 이어질 것이다.">
 
 
   <meta name="author" content="Yongjin Shin">
@@ -19,30 +19,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Such a Nomad Life">
-<meta property="og:title" content="Ubuntu 18.04 설치">
-<meta property="og:url" content="http://localhost:4000/blog/tip1/">
+<meta property="og:title" content="[Summary] Multi-agent Systems-Chapter4">
+<meta property="og:url" content="http://localhost:4000/book/mas-chap4/">
 
 
-  <meta property="og:description" content="간만에 연구실 출근해서 컴퓨터에 우분투18.04+윈도우10 설치를 했습니다. 원래 맥북을 써왔는데 연구실에서 윈도우를 쓰려니 도무지  적응이 안되어서 벼르고 있던 우분투를 깔아버렸네요.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2019-08-26T00:00:00+09:00">
+  <meta property="og:description" content="3장에서는 게임에 있어서 최적 솔루션이 무엇인가(혹은 Nash Euilibrium) 이외에 다른 대안이 없는지에 대해서다. 4장에서는 그 솔루션을 얻는데 있어 계산이 얼마나 복잡할 것인가에 대한 문제를 다루게 된다. 자연스럽게 가장 간단한 2명의 플레이어, 제로섬 normal-form게임으로부터 시작하여, general-sum게임과 n플레이어+general-sum게임으로까지 확장된다. 더불어 3장에서 살펴보았던 maxmin/minmax전략과 우위전략, correlated equilbria 전략까지 솔루션을 얻는데 얼마나 복잡한지에 대한 탐구가 이어질 것이다.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2019-08-27T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/blog/tip1/">
+
+<link rel="canonical" href="http://localhost:4000/book/mas-chap4/">
 
 
 
@@ -275,15 +275,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Ubuntu 18.04 설치">
-    <meta itemprop="description" content="간만에 연구실 출근해서 컴퓨터에 우분투18.04+윈도우10 설치를 했습니다. 원래 맥북을 써왔는데 연구실에서 윈도우를 쓰려니 도무지  적응이 안되어서 벼르고 있던 우분투를 깔아버렸네요.">
-    <meta itemprop="datePublished" content="August 26, 2019">
+    <meta itemprop="headline" content="[Summary] Multi-agent Systems-Chapter4">
+    <meta itemprop="description" content="3장에서는 게임에 있어서 최적 솔루션이 무엇인가(혹은 Nash Euilibrium) 이외에 다른 대안이 없는지에 대해서다. 4장에서는 그 솔루션을 얻는데 있어 계산이 얼마나 복잡할 것인가에 대한 문제를 다루게 된다. 자연스럽게 가장 간단한 2명의 플레이어, 제로섬 normal-form게임으로부터 시작하여, general-sum게임과 n플레이어+general-sum게임으로까지 확장된다. 더불어 3장에서 살펴보았던 maxmin/minmax전략과 우위전략, correlated equilbria 전략까지 솔루션을 얻는데 얼마나 복잡한지에 대한 탐구가 이어질 것이다.">
+    <meta itemprop="datePublished" content="August 27, 2019">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Ubuntu 18.04 설치
+          <h1 id="page-title" class="page__title" itemprop="headline">[Summary] Multi-agent Systems-Chapter4
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -299,49 +299,32 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>간만에 연구실 출근해서 컴퓨터에 우분투18.04+윈도우10 설치를 했습니다. 원래 맥북을 써왔는데 연구실에서 윈도우를 쓰려니 도무지  적응이 안되어서 벼르고 있던 우분투를 깔아버렸네요.</p>
+        <p>3장에서는 게임에 있어서 최적 솔루션이 무엇인가(혹은 Nash Euilibrium) 이외에 다른 대안이 없는지에 대해서다. 4장에서는 그 솔루션을 얻는데 있어 계산이 얼마나 복잡할 것인가에 대한 문제를 다루게 된다. 자연스럽게 가장 간단한 2명의 플레이어, 제로섬 normal-form게임으로부터 시작하여, general-sum게임과 n플레이어+general-sum게임으로까지 확장된다. 더불어 3장에서 살펴보았던 maxmin/minmax전략과 우위전략, correlated equilbria 전략까지 솔루션을 얻는데 얼마나 복잡한지에 대한 탐구가 이어질 것이다.</p>
 
-<p>제대로 설치해보기는 처음인지라 한참을 헤매고 다녀서 오늘 하루 시간만 날려먹었네요. 설치에 도움이 되었던 자료들만 간략하게 정리를 해봅니다 (조만간 잘 못 만져서 갈아엎을 때 필요할 것 같으므로…)</p>
+<p>Side Notes:</p>
 
-<hr />
+<p>“Two-player zero-sum games are one of the few areas in game theory, and indeed in the social sciences, where a fairly shar, unique prediction is made” Robert Aumann 1987</p>
 
-<p>우분투 설치: <a href="https://cupjoo.tistory.com/53">https://cupjoo.tistory.com/53</a></p>
+<ul>
+  <li>Indeed quilibria of zero-sum games are efficiently computable, comprise a convex set, can be reached via dynamics dfficiently.</li>
+  <li>While outside of zero-sum games equilibria are PPAD-hard, disconnected, and not reachable via dynamics</li>
+</ul>
 
-<p>고정 ip: <a href="https://www.lesstif.com/pages/viewpage.action?pageId=61899302">https://www.lesstif.com/pages/viewpage.action?pageId=61899302</a></p>
+<h4 id="escape-1-approximation">Escape 1: Approximation</h4>
+<ul>
+  <li>no player has no more than some small \eps incentive to deviate</li>
+</ul>
 
-<p>한글 uim: <a href="http://progtrend.blogspot.com/2018/06/ubuntu-1804-uim.html">http://progtrend.blogspot.com/2018/06/ubuntu-1804-uim.html</a></p>
+<h4 id="escape-2-games-wspecial-strucure">Escape 2: Games w/Special Strucure</h4>
+<ul>
+  <li>Arbitrary normal form are hard, but 2 player zeor sum aren’t
+i.e. Multi-player Zero-sum Games, Anonymous Games</li>
+</ul>
 
-<p>Nvidia: <a href="https://codechacha.com/ko/install-nvidia-driver-ubuntu/">https://codechacha.com/ko/install-nvidia-driver-ubuntu/</a></p>
-
-<p>SVN: <a href="https://lynnbaek.github.io/2018/10/11/ubuntu-rabbitvcs/">https://lynnbaek.github.io/2018/10/11/ubuntu-rabbitvcs/</a></p>
-
-<p>git: <a href="https://www.crocus.co.kr/1494">https://www.crocus.co.kr/1494</a></p>
-
-<p>git client: Software App에서 다운로드. git kraken</p>
-
-<p>zsh: <a href="https://dev.to/mskian/install-z-shell-oh-my-zsh-on-ubuntu-1804-lts-4cm4">https://dev.to/mskian/install-z-shell-oh-my-zsh-on-ubuntu-1804-lts-4cm4</a></p>
-
-<p>Pycharm: Software App에서 직접 다운로드</p>
-
-<p>conda: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-anaconda-python-distribution-on-ubuntu-18-04">https://www.digitalocean.com/community/tutorials/how-to-install-the-anaconda-python-distribution-on-ubuntu-18-04</a>
-zsh로하면 init이 안되므로 bashrc나 bash_profile에서 init 블락 copy&amp;paste할 것
-(pyenv: <a href="https://lhy.kr/configuring-the-python-development-environment-with-pyenv-and-virtualenv">https://lhy.kr/configuring-the-python-development-environment-with-pyenv-and-virtualenv</a>)</p>
-
-<p>spotify: <a href="https://www.spotify.com/nl/download/linux/">https://www.spotify.com/nl/download/linux/</a></p>
-
-<p>한글폰트: <a href="https://syssurr.tistory.com/270">https://syssurr.tistory.com/270</a></p>
-
-<p>테마 변경: <a href="https://codevkr.tistory.com/89">https://codevkr.tistory.com/89</a></p>
-
-<p>Disable Beep sound: Zsh <a href="https://blog.vghaisas.com/zsh-beep-sound/">https://blog.vghaisas.com/zsh-beep-sound/</a> Ubuntu <a href="https://askubuntu.com/questions/1030515/turn-off-error-sound-on-ubuntu-18-04">https://askubuntu.com/questions/1030515/turn-off-error-sound-on-ubuntu-18-04</a></p>
-
-<p>ssh 설정: <a href="https://blog.lael.be/post/7678">https://blog.lael.be/post/7678</a></p>
-
-<p>프린터 설정: <a href="https://tutorialforlinux.com/2018/04/21/driver-epson-l655-ubuntu-18-04-how-to-download-install/">https://tutorialforlinux.com/2018/04/21/driver-epson-l655-ubuntu-18-04-how-to-download-install/</a></p>
-
-<p>그 외 팁:</p>
-
-<p><a href="https://brunch.co.kr/@calmglow/6">https://brunch.co.kr/@calmglow/6</a></p>
+<h4 id="escape-3-alternative-solution-concepts">Escape 3: Alternative Solution Concepts</h4>
+<ul>
+  <li>Two canonical and plausible alternatives: Correlated quilibrium, No-regret learning behaviour</li>
+</ul>
 
 
         
@@ -363,11 +346,11 @@ zsh로하면 init이 안되므로 bashrc나 bash_profile에서 init 블락 copy&
     
       
       
-      <a href="/tags/#%EC%9A%B0%EB%B6%84%ED%88%AC" class="page__taxonomy-item" rel="tag">우분투</a><span class="sep">, </span>
+      <a href="/tags/#mas" class="page__taxonomy-item" rel="tag">MAS</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#%ED%8C%81" class="page__taxonomy-item" rel="tag">팁</a>
+      <a href="/tags/#summary" class="page__taxonomy-item" rel="tag">Summary</a>
     
     </span>
   </p>
@@ -388,14 +371,14 @@ zsh로하면 init이 안되므로 bashrc나 bash_profile에서 init 블락 copy&
     
       
       
-      <a href="/categories/#blog" class="page__taxonomy-item" rel="tag">Blog</a>
+      <a href="/categories/#book" class="page__taxonomy-item" rel="tag">Book</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-26T00:00:00+09:00">August 26, 2019</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-27T00:00:00+09:00">August 27, 2019</time></p>
         
       </footer>
 
@@ -404,22 +387,22 @@ zsh로하면 init이 안되므로 bashrc나 bash_profile에서 init 블락 copy&
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=Ubuntu+18.04+%EC%84%A4%EC%B9%98%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2Ftip1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BSummary%5D+Multi-agent+Systems-Chapter4%20http%3A%2F%2Flocalhost%3A4000%2Fbook%2Fmas-chap4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Ftip1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fbook%2Fmas-chap4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Ftip1%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fbook%2Fmas-chap4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/%EB%B2%88%EC%97%AD/Translation1/" class="pagination--pager" title="[번역] 성공하는 대학원생의 3가지 자질: 끈기, 고집 그리고 설득력
+      <a href="/blog/tip1/" class="pagination--pager" title="Ubuntu 18.04 설치
 ">Previous</a>
     
     
-      <a href="/book/mas-chap4/" class="pagination--pager" title="[Summary] Multi-agent Systems-Chapter4
+      <a href="/mas/game%20theory/lp-gt1/" class="pagination--pager" title="[Summary] An Intro Lin.Prog &amp; Game Theory-Chapter8
 ">Next</a>
     
   </nav>
@@ -471,7 +454,7 @@ zsh로하면 init이 안되므로 bashrc나 bash_profile에서 init 블락 copy&
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/book/mas-chap4/" rel="permalink">[Summary] Multi-agent Systems-Chapter4
+        <a href="/blog/tip1/" rel="permalink">Ubuntu 18.04 설치
 </a>
       
     </h2>
@@ -484,7 +467,9 @@ zsh로하면 init이 안되므로 bashrc나 bash_profile에서 init 블락 copy&
   less than 1 minute read
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">3장에서는 게임에 있어서 최적 솔루션이 무엇인가(혹은 Nash Euilibrium) 이외에 다른 대안이 없는지에 대해서다. 4장에서는 그 솔루션을 얻는데 있어 계산이 얼마나 복잡할 것인가에 대한 문제를 다루게 된다. 자연스럽게 가장 간단한 2명의 플레이어, 제로섬 normal-fo...</p>
+    <p class="archive__item-excerpt" itemprop="description">간만에 연구실 출근해서 컴퓨터에 우분투18.04+윈도우10 설치를 했습니다. 원래 맥북을 써왔는데 연구실에서 윈도우를 쓰려니 도무지  적응이 안되어서 벼르고 있던 우분투를 깔아버렸네요.
+
+</p>
   </article>
 </div>
 
@@ -579,8 +564,8 @@ zsh로하면 init이 안되므로 bashrc나 bash_profile에서 init 블락 copy&
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/blog/tip1/";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "/blog/tip1"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "http://localhost:4000/book/mas-chap4/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/book/mas-chap4"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
