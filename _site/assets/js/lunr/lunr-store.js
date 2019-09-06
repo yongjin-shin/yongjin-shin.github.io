@@ -18,4 +18,14 @@ var store = [{
         "excerpt":"Multi-agent Systems의 극악무도한 내용 때문에 다른 강의들 뒤적이다가 뭔가 LP를 다시 봐야할 것 같아서, 예전에 대학원 시험 때문에 공부했던 “An Introduction Linear Programming and Game Theory”를 다시 펼쳐봤습니다..신세계를 맛보았네요. 아주 아주 간략한 포인트만 정리해두도록 하겠습니다. (참고로 이 책에서는 오직 Two Person Zero Sum game만을 다루고 있어서, 결국 그 책으로 돌아가야만...","categories": ["MAS","Game Theory"],
         "tags": ["Book","Summary"],
         "url": "http://localhost:4000/mas/game%20theory/lp-gt1/",
+        "teaser":null},{
+        "title": "좋은 연구란",
+        "excerpt":"고맙게도 연구실원 중에 한 친구가 가끔씩 커피를 마시러 가자고 얘기를 해준다. 오늘도 논문 보면서 심란해하다가 이야기를 나누게 되었다. 다들 연차가 쌓여있는 친구들이라서 이해 안 되는 이야기를 할 때가 많지만, 그래도 도움이 되는 내용들이 항상 존재한다. 실용성 오늘은 좋은 논문에 대해서 이야기가 나왔다. 좋은 논문이란 뭘까에 대해서 석사하는 후배와 얘기를 나누었던...","categories": ["Research"],
+        "tags": ["연구"],
+        "url": "http://localhost:4000/research/talk/",
+        "teaser":null},{
+        "title": "Actor Critic And Policy Gradients",
+        "excerpt":"논문읽다가 여전히 제대로 모르는 것 같아서 Berkeley 강의를 들었다. 매번 강의 듣고 치워버렸는데, 다른 공부하기 이전에 정리를 해보고 넘어가려고 한다. (생각 정리용) Vanilla Policy Gradient RL에서 하고자 하는 것은 어떠한 tast에서 가장 좋은 결과를 얻기 위한 Action을 찾아내는 것이다. (스탠포드에서는 Sequential Decision Making이라고 했다) 따라서 이를 나타내보자면, 우리가 원하는 것은...","categories": ["RL"],
+        "tags": ["Policy Gradients","Actor-Critic Algorithms"],
+        "url": "http://localhost:4000/rl/actor-critic-and-policy-gradients/",
         "teaser":null}]
