@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-06T14:07:13+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Such a Nomad Life</title><subtitle>Blogging With Minimal Effort..!</subtitle><author><name>Yongjin Shin</name></author><entry><title type="html">Actor Critic And Policy Gradients</title><link href="http://localhost:4000/rl/actor-critic-and-policy-gradients/" rel="alternate" type="text/html" title="Actor Critic And Policy Gradients" /><published>2019-09-06T00:00:00+09:00</published><updated>2019-09-06T00:00:00+09:00</updated><id>http://localhost:4000/rl/actor-critic-and-policy-gradients</id><content type="html" xml:base="http://localhost:4000/rl/actor-critic-and-policy-gradients/">&lt;p&gt;논문읽다가 여전히 제대로 모르는 것 같아서 Berkeley 강의를 들었다. 매번 강의 듣고 치워버렸는데, 다른 공부하기 이전에 정리를 해보고 넘어가려고 한다. (생각 정리용)&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-07T23:47:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Such a Nomad Life</title><subtitle>Blogging With Minimal Effort..!</subtitle><author><name>Yongjin Shin</name></author><entry><title type="html">image test</title><link href="http://localhost:4000/images/image-test/" rel="alternate" type="text/html" title="image test" /><published>2019-09-07T00:00:00+09:00</published><updated>2019-09-07T00:00:00+09:00</updated><id>http://localhost:4000/images/image-test</id><content type="html" xml:base="http://localhost:4000/images/image-test/">&lt;p&gt;This is the test post for uploading images!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2019-09-07-image-test/Quotefancy-1756126-3840x2160.jpg&quot; alt=&quot;Quotefancy-1756126-3840x2160&quot; /&gt;&lt;/p&gt;</content><author><name>Yongjin Shin</name></author><category term="test" /><summary type="html">This is the test post for uploading images!</summary></entry><entry><title type="html">Actor Critic And Policy Gradients</title><link href="http://localhost:4000/rl/actor-critic-and-policy-gradients/" rel="alternate" type="text/html" title="Actor Critic And Policy Gradients" /><published>2019-09-06T00:00:00+09:00</published><updated>2019-09-06T00:00:00+09:00</updated><id>http://localhost:4000/rl/actor-critic-and-policy-gradients</id><content type="html" xml:base="http://localhost:4000/rl/actor-critic-and-policy-gradients/">&lt;p&gt;논문읽다가 여전히 제대로 모르는 것 같아서 Berkeley 강의를 들었다. 매번 강의 듣고 치워버렸는데, 다른 공부하기 이전에 정리를 해보고 넘어가려고 한다. (생각 정리용)&lt;/p&gt;
 
 &lt;h2 id=&quot;vanilla-policy-gradient&quot;&gt;Vanilla Policy Gradient&lt;/h2&gt;
 
 &lt;p&gt;RL에서 하고자 하는 것은 어떠한 tast에서 가장 좋은 결과를 얻기 위한 Action을 찾아내는 것이다. (스탠포드에서는 Sequential Decision Making이라고 했다) 따라서 이를 나타내보자면,&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta^{*} = argmax_{\theta} \mathbb{E}_{\tau} \sim p_{theta}(\tau) \sum_{t} r(s_{t}, a_{t}]&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta^{*} = argmax_{\theta} \mathbb{E}_{\tau} \sim p_{theta}(\tau) \sum_{t} r(s_{t}, a_{t})]&lt;/script&gt;
 
 &lt;p&gt;우리가 원하는 것은 &lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt;의 optimal 값이 되겠다. 여기서 기대값을 구해야 하는데, 가장 쉽게는 Monte Calro를 이용하면 된다. 물론 몬테카를로가 기대값으로 수렴하기 위해서는 충분히 많은 샘플이 있어야 하고, RL에서는 특정 &lt;script type=&quot;math/tex&quot;&gt;s_0, a_0&lt;/script&gt;부터 &lt;script type=&quot;math/tex&quot;&gt;s_{des}, a_{des}&lt;/script&gt;까지 모두 샘플을 얻어야만 한다. (여기서 문제점은 어느 세월에 이러한 샘플링을 할 것인가에 대한 물음이 따르게 된다.) 여튼, 몬테카를로는 하기 싫기 때문에(왜??) Gradient descent/ascent를 하고자 한다. 이걸 도입하는 순간 Global Optimum은 포기한게 아닐까? 뭐, global optimum을 구하면 좋기는 한데 global이고 나발이고 일단 optimum부터 찾는게 문제이니 일단 구해보자. 증명과정 약간의 log 트릭을 사용하면 어째저째 할 수 있으니 생략하고, 결과는&lt;/p&gt;
 
@@ -12,11 +14,14 @@
 
 &lt;p&gt;흠, 그런데 어쨌거나 샘플링을 많이 한다음 derivative를 계산하고 &lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt;를 업데이트 해줘야 한다. &lt;script type=&quot;math/tex&quot;&gt;(\theta \leftarrow \theta + \alpha \nabla_{\theta}J(\theta))&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;위의 derivative를 조금 더 음미를 해보자면, 리워드 합의 기대값이 큰 방향으로 &lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt;를 이동시켜주는 것이다. (마치 로지스틱 리그레션처럼) 근데 위의 수식에서 리워드 합의 기대값&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{t=1}^{T} r(a_{t}|s_{t})&lt;/script&gt;
-
-&lt;p&gt;부분만 제거해주면, &lt;script type=&quot;math/tex&quot;&gt;J_{\theta}&lt;/script&gt;의 MLE와 동일하게 된다. 나중에 텐서플로우에서는 MLE를 잘해준 다음에 각각의 샘플에 리워드 합의 기대값만 weight sum형식으로 진행해주면 된다는 말이다.&lt;/p&gt;
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;위의 derivative를 조금 더 음미를 해보자면, 리워드 합의 기대값이 큰 방향으로 &lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt;를 이동시켜주는 것이다. (마치 로지스틱 리그레션처럼) 근데 위의 수식에서 리워드 합의 기대값  $$\sum_{t=1}^{T} r(a_{t}&lt;/td&gt;
+      &lt;td&gt;s_{t})&lt;script type=&quot;math/tex&quot;&gt;부분만 제거해주면,&lt;/script&gt;J_{\theta}$$의 MLE와 동일하게 된다. 나중에 텐서플로우에서는 MLE를 잘해준 다음에 각각의 샘플에 리워드 합의 기대값만 weight sum형식으로 진행해주면 된다는 말이다.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;reducing-variance&quot;&gt;Reducing Variance&lt;/h2&gt;
 
@@ -36,11 +41,7 @@
 &lt;p&gt;(여러가지 수식들로 풀어쓸 수 있지만, 아직 vim이랑 markdown이 익숙하지 않으므로 여기까지만…)&lt;/p&gt;
 
 &lt;h2 id=&quot;actor-critic-algorithms&quot;&gt;Actor-Critic Algorithms&lt;/h2&gt;
-&lt;p&gt;그런데 위의 식에서 weight 부분은 어쨌거나 estimate이다. 왜냐하면 우리가 원하는 완벽한 &lt;script type=&quot;math/tex&quot;&gt;\theta^{*}&lt;/script&gt;에 의해서 샘플링된 &lt;script type=&quot;math/tex&quot;&gt;s_{t}, a_{t}&lt;/script&gt;가 아니기 때문이다. 뿐만 아니라, 분산을 줄이기 위해서 계산을 할 때 오로지 해당 시점에서의 샘플들만 고려를 하지, 전체 sequence의 샘플을 모두 고려하는 과정이 없다. 그렇기 때문에 biased는 되어있을지라도 여전히 분산은 높은 실정이다. 그렇다면 우리가 앞에서 계산한 것처럼 계산을 해주는 것보다 더 정확하게 계산할 수는 없을까? 어차피 우리는 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;로 평균을 구한다. 차라리 Q-function에서 action들까지 평균치를 처리한 value function을 이용하면 어떨까? 즉,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;V^{\pi}(s_{t}) = \mathbb{E}_{a_{t} \sim \pi_{0}(a_{t}|s_{t})}[Q_{\pi}(s_{t}|a_{t})]&lt;/script&gt;
-
-&lt;p&gt;를 사용하기로 해보자. 여기서 Advantage function이 튀어나온다.&lt;/p&gt;
+&lt;p&gt;그런데 위의 식에서 weight 부분은 어쨌거나 estimate이다. 왜냐하면 우리가 원하는 완벽한 &lt;script type=&quot;math/tex&quot;&gt;\theta^{*}&lt;/script&gt;에 의해서 샘플링된 &lt;script type=&quot;math/tex&quot;&gt;s_{t}, a_{t}&lt;/script&gt;가 아니기 때문이다. 뿐만 아니라, 분산을 줄이기 위해서 계산을 할 때 오로지 해당 시점에서의 샘플들만 고려를 하지, 전체 sequence의 샘플을 모두 고려하는 과정이 없다. 그렇기 때문에 biased는 되어있을지라도 여전히 분산은 높은 실정이다. 그렇다면 우리가 앞에서 계산한 것처럼 계산을 해주는 것보다 더 정확하게 계산할 수는 없을까? 어차피 우리는 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;로 평균을 구한다. 차라리 Q-function에서 action들까지 평균치를 처리한 value function을 이용하면 어떨까? 즉,  &lt;script type=&quot;math/tex&quot;&gt;V^{\pi}(s_{t}) = \mathbb{E}_{a_{t} \sim \pi_{0}(a_{t}|s_{t})}[Q_{\pi}(s_{t}|a_{t})]&lt;/script&gt;를 사용하기로 해보자. 여기서 Advantage function이 튀어나온다.&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;A^{\pi}(s_{t}, a_{t}) = Q^{\pi}(s_{t}, a_{t}) - V^{\pi}(s_{t})&lt;/script&gt;
 
@@ -60,7 +61,14 @@
 
 &lt;p&gt;추가적으로 언급할 부분은 Advantage function을 구성할 때 bias-variance tradeoff 이슈가 생긴다. 만약 우리가 더 많은 variance를 허용할 수 없다면, 우리는 더 많은 실제 샘플을 추가해서 진행하면 된다. 그럴수록 우리는 더 많은 bias가 생길 수 밖에 없다. 이 부분은 &lt;script type=&quot;math/tex&quot;&gt;TD(\lambda)&lt;/script&gt;의 개념을 떠올리면 쉽게 이해가 갈 것이다.&lt;/p&gt;
 
-&lt;p&gt;마지막으로 Actor-Critic의 개념은 Actor는 실제로 action을 담담하게 되는 Q-function 쪽을 의미하게 되고, critic은 기준점이 되는 V-function 을 의미하게 된다.&lt;/p&gt;</content><author><name>Yongjin Shin</name></author><category term="Policy Gradients" /><category term="Actor-Critic Algorithms" /><summary type="html">논문읽다가 여전히 제대로 모르는 것 같아서 Berkeley 강의를 들었다. 매번 강의 듣고 치워버렸는데, 다른 공부하기 이전에 정리를 해보고 넘어가려고 한다. (생각 정리용)</summary></entry><entry><title type="html">좋은 연구란</title><link href="http://localhost:4000/research/talk/" rel="alternate" type="text/html" title="좋은 연구란" /><published>2019-09-01T00:00:00+09:00</published><updated>2019-09-01T00:00:00+09:00</updated><id>http://localhost:4000/research/talk</id><content type="html" xml:base="http://localhost:4000/research/talk/">&lt;p&gt;고맙게도 연구실원 중에 한 친구가 가끔씩 커피를 마시러 가자고 얘기를 해준다.
+&lt;p&gt;마지막으로 Actor-Critic의 개념은 Actor는 실제로 action을 담담하게 되는 Q-function 쪽을 의미하게 되고, critic은 기준점이 되는 V-function 을 의미하게 된다.&lt;/p&gt;
+
+&lt;p&gt;참고&amp;gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html#actor-critic&quot;&gt;https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html#actor-critic&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jeremykun.com/2015/04/06/markov-chain-monte-carlo-without-all-the-bullshit/&quot;&gt;https://jeremykun.com/2015/04/06/markov-chain-monte-carlo-without-all-the-bullshit/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://rail.eecs.berkeley.edu/deeprlcourse-fa17/f17docs/&quot;&gt;http://rail.eecs.berkeley.edu/deeprlcourse-fa17/f17docs/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Yongjin Shin</name></author><category term="Policy Gradients" /><category term="Actor-Critic Algorithms" /><summary type="html">논문읽다가 여전히 제대로 모르는 것 같아서 Berkeley 강의를 들었다. 매번 강의 듣고 치워버렸는데, 다른 공부하기 이전에 정리를 해보고 넘어가려고 한다. (생각 정리용)</summary></entry><entry><title type="html">좋은 연구란</title><link href="http://localhost:4000/research/talk/" rel="alternate" type="text/html" title="좋은 연구란" /><published>2019-09-01T00:00:00+09:00</published><updated>2019-09-01T00:00:00+09:00</updated><id>http://localhost:4000/research/talk</id><content type="html" xml:base="http://localhost:4000/research/talk/">&lt;p&gt;고맙게도 연구실원 중에 한 친구가 가끔씩 커피를 마시러 가자고 얘기를 해준다.
 오늘도 논문 보면서 심란해하다가 이야기를 나누게 되었다.
 다들 연차가 쌓여있는 친구들이라서 이해 안 되는 이야기를 할 때가 많지만, 그래도 도움이 되는 내용들이 항상 존재한다.&lt;/p&gt;
 
@@ -96,32 +104,46 @@
 &lt;p&gt;여담으로, 도메인을 찾아보자, 어려워도 처음부터 좋은 연구를 하도록 노력하자..라고 하더이다.
 하, 아는데 쉽지 않다. 이 길이 맞을까? 이러다가 그냥 아웃풋도 없이 쫄딱 망하면 어쩌나? 하는 고민.
 다른 분야에서 이리저리 떠다니다 여기와서도 똑같은 고민이다.
-그냥 어딜가나 다 똑같나 보다. 친한 형이 말했듯이, 어떤 선택을 하는건 그다지 중요한게 아닌 것 같다.&lt;/p&gt;</content><author><name>Yongjin Shin</name></author><category term="연구" /><summary type="html">고맙게도 연구실원 중에 한 친구가 가끔씩 커피를 마시러 가자고 얘기를 해준다. 오늘도 논문 보면서 심란해하다가 이야기를 나누게 되었다. 다들 연차가 쌓여있는 친구들이라서 이해 안 되는 이야기를 할 때가 많지만, 그래도 도움이 되는 내용들이 항상 존재한다.</summary></entry><entry><title type="html">[Summary] An Intro Lin.Prog &amp;amp; Game Theory-Chapter8</title><link href="http://localhost:4000/mas/game%20theory/lp-gt1/" rel="alternate" type="text/html" title="[Summary] An Intro Lin.Prog &amp; Game Theory-Chapter8" /><published>2019-08-28T00:00:00+09:00</published><updated>2019-08-28T00:00:00+09:00</updated><id>http://localhost:4000/mas/game%20theory/lp-gt1</id><content type="html" xml:base="http://localhost:4000/mas/game%20theory/lp-gt1/">&lt;p&gt;Multi-agent Systems의 극악무도한 내용 때문에 다른 강의들 뒤적이다가 뭔가 LP를 다시 봐야할 것 같아서, 예전에 대학원 시험 때문에 공부했던 “An Introduction Linear Programming and Game Theory”를 다시 펼쳐봤습니다..신세계를 맛보았네요. 아주 아주 간략한 포인트만 정리해두도록 하겠습니다. (참고로 이 책에서는 오직 Two Person Zero Sum game만을 다루고 있어서, 결국 &lt;strong&gt;그&lt;/strong&gt; 책으로 돌아가야만 합니다..아..)&lt;/p&gt;
+그냥 어딜가나 다 똑같나 보다. 친한 형이 말했듯이, 어떤 선택을 하는건 그다지 중요한게 아닌 것 같다.&lt;/p&gt;</content><author><name>Yongjin Shin</name></author><category term="연구" /><summary type="html">고맙게도 연구실원 중에 한 친구가 가끔씩 커피를 마시러 가자고 얘기를 해준다. 오늘도 논문 보면서 심란해하다가 이야기를 나누게 되었다. 다들 연차가 쌓여있는 친구들이라서 이해 안 되는 이야기를 할 때가 많지만, 그래도 도움이 되는 내용들이 항상 존재한다.</summary></entry><entry><title type="html">An Intro Lin.Prog &amp;amp; Game Theory-Chapter8</title><link href="http://localhost:4000/mas/game%20theory/lp-gt1/" rel="alternate" type="text/html" title="An Intro Lin.Prog &amp; Game Theory-Chapter8" /><published>2019-08-28T00:00:00+09:00</published><updated>2019-08-28T00:00:00+09:00</updated><id>http://localhost:4000/mas/game%20theory/lp-gt1</id><content type="html" xml:base="http://localhost:4000/mas/game%20theory/lp-gt1/">&lt;p&gt;Multi-agent Systems의 극악무도한 내용 때문에 다른 강의들 뒤적이다가 뭔가 LP를 다시 봐야할 것 같아서, 예전에 대학원 시험 때문에 공부했던 “An Introduction Linear Programming and Game Theory”를 다시 펼쳐봤습니다..신세계를 맛보았네요. 아주 아주 간략한 포인트만 정리해두도록 하겠습니다. (참고로 이 책에서는 오직 Two Person Zero Sum game만을 다루고 있어서, 결국 &lt;strong&gt;그&lt;/strong&gt; 책으로 돌아가야만 합니다..아..)&lt;/p&gt;
 
 &lt;h3 id=&quot;82-some-principles-of-decision-making-in-game-theory&quot;&gt;8.2 Some Principles of Decision Making in Game Theory&lt;/h3&gt;
-&lt;p&gt;Principle 1) Each player acts to maximize his security level.
-Principle 2) The players tend to strategy pairs that are in equilibrium.&lt;/p&gt;
+&lt;p&gt;Principle&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Each player acts to maximize his security level.&lt;/li&gt;
+  &lt;li&gt;The players tend to strategy pairs that are in equilibrium.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;간단하게, 각자 보수적인 선택을 하는 방향으로 갑니다. 어떻게 더 많이 얻을까가 아니라, 잃는데 얼머나 덜 잃을까를 선택하는 것입니다. 그리고 평형상태로 다가가는 것이지요. Principle 1은 Maxmin과 Minmax에 대한 idea를 던져주고 principle 2에서 그 유명한 &lt;script type=&quot;math/tex&quot;&gt;Maxmin \leq Minmax&lt;/script&gt;에 대한 얘기를 끄집어 냅니다.&lt;/p&gt;
 
 &lt;h3 id=&quot;83-saddle-points&quot;&gt;8.3 Saddle Points&lt;/h3&gt;
-&lt;p&gt;Thm 1) &lt;script type=&quot;math/tex&quot;&gt;u_1 \leq u_2&lt;/script&gt;
-Thm 2) &lt;script type=&quot;math/tex&quot;&gt;U_1 = u_2&lt;/script&gt; iff the payoff matrix A has a saddle point.&lt;/p&gt;
+&lt;p&gt;Thm&lt;/p&gt;
 
-&lt;p&gt;Def) An entry a_{hk} of a payoff amtrix A is a saddle point if Min_{1\leq j \leq n} a_{hj} = a_{hk} = Max_{1 \leq i \leq m} a_{ik}, that is, if a_{hk} is the minimum of row h and the maximum of column k.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;u_{1} \leq u_{2}&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;U_{1} = u_{2}&lt;/script&gt; iff the payoff matrix A has a saddle point.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Def) An entry &lt;script type=&quot;math/tex&quot;&gt;a_{hk}&lt;/script&gt; of a payoff amtrix A is a saddle point if &lt;script type=&quot;math/tex&quot;&gt;Min_{1\leq j \leq n} a_{hj} = a_{hk} = Max_{1 \leq i \leq m} a_{ik}&lt;/script&gt;, that is, if &lt;script type=&quot;math/tex&quot;&gt;a_{hk}&lt;/script&gt; is the minimum of row h and the maximum of column k.&lt;/p&gt;
 
 &lt;p&gt;뭔가 주저리 주저리 말이 많은데, 그냥 간단하게 Saddle Point 떠올리고 Maxmin과 Minmax의 안장점이다. 라고 하면되는데, Thm1의 증명은 직관적으로 생각할 수 있는데 책에 있는 매트릭스로 설명해놓은 부분이 너무 좋네요. (쉬우니깐)&lt;/p&gt;
 
 &lt;h3 id=&quot;84-mixed-strategies&quot;&gt;8.4 Mixed Strategies&lt;/h3&gt;
-&lt;p&gt;Def) Mixed Strategies for P_{1} is a vector X = (x_{1}, … x_{m}) of non-neg \mathbb{R} satisfying probability axioms.
-Def) The expected payoff: XAY^{T} = \sum_{1 \leq i \leq m} \sum_{1 \leq j \leq n} x_{i} a_{ij} y_{j}
-Thm1) v_{1} \leq v_{2} (v_{1}은 그냥 행렬식으로 표현한 것. 귀찮으므로 생략)
-Thm2)&lt;/p&gt;
+&lt;p&gt;Def) Mixed Strategies for &lt;script type=&quot;math/tex&quot;&gt;P_{1}&lt;/script&gt; is a vector &lt;script type=&quot;math/tex&quot;&gt;X = (x_{1}, ... x_{m})&lt;/script&gt; of non-neg &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}&lt;/script&gt; satisfying probability axioms.&lt;/p&gt;
+
+&lt;p&gt;Def) The expected payoff: &lt;script type=&quot;math/tex&quot;&gt;XAY^{T} = \sum_{1 \leq i \leq m} \sum_{1 \leq j \leq n} x_{i} a_{ij} y_{j}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Thm&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;v_{1} \leq v_{2}&lt;/script&gt; (&lt;script type=&quot;math/tex&quot;&gt;v_{1}&lt;/script&gt;은 그냥 행렬식으로 표현한 것. 귀찮으므로 생략)&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h3 id=&quot;85-the-fundamental-theorem&quot;&gt;8.5 The Fundamental Theorem&lt;/h3&gt;
 &lt;p&gt;아이디어 순서:&lt;/p&gt;
 
-&lt;p&gt;8.4에서 나타낸 표기법들은 쫙 늘여써주면, Maxmin은 minization을 하는 primal problem이 되고, Minmax는 maximization을 하는 dual problem으로 나타나게 된다. 이때, payoff matrix가 0 이상일 경우에는 Duality Theorem에 의해서 반드시 finite solution 이 존재하게 된다! 이것이 결국 equilibrium이 된다. 음수가 포함된 payoff matrix에는 어떻게 잘 하면 된다고 하는데, &lt;del&gt;자세한 설명은 생략합니다&lt;/del&gt;&lt;/p&gt;</content><author><name>Yongjin Shin</name></author><category term="Book" /><category term="Summary" /><summary type="html">Multi-agent Systems의 극악무도한 내용 때문에 다른 강의들 뒤적이다가 뭔가 LP를 다시 봐야할 것 같아서, 예전에 대학원 시험 때문에 공부했던 “An Introduction Linear Programming and Game Theory”를 다시 펼쳐봤습니다..신세계를 맛보았네요. 아주 아주 간략한 포인트만 정리해두도록 하겠습니다. (참고로 이 책에서는 오직 Two Person Zero Sum game만을 다루고 있어서, 결국 그 책으로 돌아가야만 합니다..아..)</summary></entry><entry><title type="html">[Summary] Multi-agent Systems-Chapter4</title><link href="http://localhost:4000/book/mas-chap4/" rel="alternate" type="text/html" title="[Summary] Multi-agent Systems-Chapter4" /><published>2019-08-27T00:00:00+09:00</published><updated>2019-08-27T00:00:00+09:00</updated><id>http://localhost:4000/book/mas-chap4</id><content type="html" xml:base="http://localhost:4000/book/mas-chap4/">&lt;p&gt;3장에서는 게임에 있어서 최적 솔루션이 무엇인가(혹은 Nash Euilibrium) 이외에 다른 대안이 없는지에 대해서다. 4장에서는 그 솔루션을 얻는데 있어 계산이 얼마나 복잡할 것인가에 대한 문제를 다루게 된다. 자연스럽게 가장 간단한 2명의 플레이어, 제로섬 normal-form게임으로부터 시작하여, general-sum게임과 n플레이어+general-sum게임으로까지 확장된다. 더불어 3장에서 살펴보았던 maxmin/minmax전략과 우위전략, correlated equilbria 전략까지 솔루션을 얻는데 얼마나 복잡한지에 대한 탐구가 이어질 것이다.&lt;/p&gt;
+&lt;p&gt;8.4에서 나타낸 표기법들은 쫙 늘여써주면, Maxmin은 minization을 하는 primal problem이 되고, Minmax는 maximization을 하는 dual problem으로 나타나게 된다. 이때, payoff matrix가 0 이상일 경우에는 Duality Theorem에 의해서 반드시 finite solution 이 존재하게 된다! 이것이 결국 equilibrium이 된다. 음수가 포함된 payoff matrix에는 어떻게 잘 하면 된다고 하는데, &lt;del&gt;자세한 설명은 생략합니다&lt;/del&gt;&lt;/p&gt;</content><author><name>Yongjin Shin</name></author><category term="Book" /><category term="Summary" /><summary type="html">Multi-agent Systems의 극악무도한 내용 때문에 다른 강의들 뒤적이다가 뭔가 LP를 다시 봐야할 것 같아서, 예전에 대학원 시험 때문에 공부했던 “An Introduction Linear Programming and Game Theory”를 다시 펼쳐봤습니다..신세계를 맛보았네요. 아주 아주 간략한 포인트만 정리해두도록 하겠습니다. (참고로 이 책에서는 오직 Two Person Zero Sum game만을 다루고 있어서, 결국 그 책으로 돌아가야만 합니다..아..)</summary></entry><entry><title type="html">Multi-agent Systems-Chapter4</title><link href="http://localhost:4000/book/mas-chap4/" rel="alternate" type="text/html" title="Multi-agent Systems-Chapter4" /><published>2019-08-27T00:00:00+09:00</published><updated>2019-08-27T00:00:00+09:00</updated><id>http://localhost:4000/book/mas-chap4</id><content type="html" xml:base="http://localhost:4000/book/mas-chap4/">&lt;p&gt;3장에서는 게임에 있어서 최적 솔루션이 무엇인가(혹은 Nash Euilibrium) 이외에 다른 대안이 없는지에 대해서다. 4장에서는 그 솔루션을 얻는데 있어 계산이 얼마나 복잡할 것인가에 대한 문제를 다루게 된다. 자연스럽게 가장 간단한 2명의 플레이어, 제로섬 normal-form게임으로부터 시작하여, general-sum게임과 n플레이어+general-sum게임으로까지 확장된다. 더불어 3장에서 살펴보았던 maxmin/minmax전략과 우위전략, correlated equilbria 전략까지 솔루션을 얻는데 얼마나 복잡한지에 대한 탐구가 이어질 것이다.&lt;/p&gt;
 
 &lt;p&gt;Side Notes:&lt;/p&gt;
 

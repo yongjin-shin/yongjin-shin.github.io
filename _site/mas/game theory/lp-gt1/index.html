@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Summary] An Intro Lin.Prog &amp; Game Theory-Chapter8 - Such a Nomad Life</title>
+<!-- begin _includes/seo.html --><title>An Intro Lin.Prog &amp; Game Theory-Chapter8 - Such a Nomad Life</title>
 <meta name="description" content="Multi-agent Systems의 극악무도한 내용 때문에 다른 강의들 뒤적이다가 뭔가 LP를 다시 봐야할 것 같아서, 예전에 대학원 시험 때문에 공부했던 “An Introduction Linear Programming and Game Theory”를 다시 펼쳐봤습니다..신세계를 맛보았네요. 아주 아주 간략한 포인트만 정리해두도록 하겠습니다. (참고로 이 책에서는 오직 Two Person Zero Sum game만을 다루고 있어서, 결국 그 책으로 돌아가야만 합니다..아..)">
 
 
@@ -19,7 +19,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Such a Nomad Life">
-<meta property="og:title" content="[Summary] An Intro Lin.Prog &amp; Game Theory-Chapter8">
+<meta property="og:title" content="An Intro Lin.Prog &amp; Game Theory-Chapter8">
 <meta property="og:url" content="http://localhost:4000/mas/game%20theory/lp-gt1/">
 
 
@@ -275,7 +275,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Summary] An Intro Lin.Prog &amp; Game Theory-Chapter8">
+    <meta itemprop="headline" content="An Intro Lin.Prog &amp; Game Theory-Chapter8">
     <meta itemprop="description" content="Multi-agent Systems의 극악무도한 내용 때문에 다른 강의들 뒤적이다가 뭔가 LP를 다시 봐야할 것 같아서, 예전에 대학원 시험 때문에 공부했던 “An Introduction Linear Programming and Game Theory”를 다시 펼쳐봤습니다..신세계를 맛보았네요. 아주 아주 간략한 포인트만 정리해두도록 하겠습니다. (참고로 이 책에서는 오직 Two Person Zero Sum game만을 다루고 있어서, 결국 그 책으로 돌아가야만 합니다..아..)">
     <meta itemprop="datePublished" content="August 28, 2019">
     
@@ -283,7 +283,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Summary] An Intro Lin.Prog &amp; Game Theory-Chapter8
+          <h1 id="page-title" class="page__title" itemprop="headline">An Intro Lin.Prog &amp; Game Theory-Chapter8
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -302,24 +302,38 @@
         <p>Multi-agent Systems의 극악무도한 내용 때문에 다른 강의들 뒤적이다가 뭔가 LP를 다시 봐야할 것 같아서, 예전에 대학원 시험 때문에 공부했던 “An Introduction Linear Programming and Game Theory”를 다시 펼쳐봤습니다..신세계를 맛보았네요. 아주 아주 간략한 포인트만 정리해두도록 하겠습니다. (참고로 이 책에서는 오직 Two Person Zero Sum game만을 다루고 있어서, 결국 <strong>그</strong> 책으로 돌아가야만 합니다..아..)</p>
 
 <h3 id="82-some-principles-of-decision-making-in-game-theory">8.2 Some Principles of Decision Making in Game Theory</h3>
-<p>Principle 1) Each player acts to maximize his security level.
-Principle 2) The players tend to strategy pairs that are in equilibrium.</p>
+<p>Principle</p>
+
+<ol>
+  <li>Each player acts to maximize his security level.</li>
+  <li>The players tend to strategy pairs that are in equilibrium.</li>
+</ol>
 
 <p>간단하게, 각자 보수적인 선택을 하는 방향으로 갑니다. 어떻게 더 많이 얻을까가 아니라, 잃는데 얼머나 덜 잃을까를 선택하는 것입니다. 그리고 평형상태로 다가가는 것이지요. Principle 1은 Maxmin과 Minmax에 대한 idea를 던져주고 principle 2에서 그 유명한 <script type="math/tex">Maxmin \leq Minmax</script>에 대한 얘기를 끄집어 냅니다.</p>
 
 <h3 id="83-saddle-points">8.3 Saddle Points</h3>
-<p>Thm 1) <script type="math/tex">u_1 \leq u_2</script>
-Thm 2) <script type="math/tex">U_1 = u_2</script> iff the payoff matrix A has a saddle point.</p>
+<p>Thm</p>
 
-<p>Def) An entry a_{hk} of a payoff amtrix A is a saddle point if Min_{1\leq j \leq n} a_{hj} = a_{hk} = Max_{1 \leq i \leq m} a_{ik}, that is, if a_{hk} is the minimum of row h and the maximum of column k.</p>
+<ol>
+  <li>
+    <script type="math/tex; mode=display">u_{1} \leq u_{2}</script>
+  </li>
+  <li><script type="math/tex">U_{1} = u_{2}</script> iff the payoff matrix A has a saddle point.</li>
+</ol>
+
+<p>Def) An entry <script type="math/tex">a_{hk}</script> of a payoff amtrix A is a saddle point if <script type="math/tex">Min_{1\leq j \leq n} a_{hj} = a_{hk} = Max_{1 \leq i \leq m} a_{ik}</script>, that is, if <script type="math/tex">a_{hk}</script> is the minimum of row h and the maximum of column k.</p>
 
 <p>뭔가 주저리 주저리 말이 많은데, 그냥 간단하게 Saddle Point 떠올리고 Maxmin과 Minmax의 안장점이다. 라고 하면되는데, Thm1의 증명은 직관적으로 생각할 수 있는데 책에 있는 매트릭스로 설명해놓은 부분이 너무 좋네요. (쉬우니깐)</p>
 
 <h3 id="84-mixed-strategies">8.4 Mixed Strategies</h3>
-<p>Def) Mixed Strategies for P_{1} is a vector X = (x_{1}, … x_{m}) of non-neg \mathbb{R} satisfying probability axioms.
-Def) The expected payoff: XAY^{T} = \sum_{1 \leq i \leq m} \sum_{1 \leq j \leq n} x_{i} a_{ij} y_{j}
-Thm1) v_{1} \leq v_{2} (v_{1}은 그냥 행렬식으로 표현한 것. 귀찮으므로 생략)
-Thm2)</p>
+<p>Def) Mixed Strategies for <script type="math/tex">P_{1}</script> is a vector <script type="math/tex">X = (x_{1}, ... x_{m})</script> of non-neg <script type="math/tex">\mathbb{R}</script> satisfying probability axioms.</p>
+
+<p>Def) The expected payoff: <script type="math/tex">XAY^{T} = \sum_{1 \leq i \leq m} \sum_{1 \leq j \leq n} x_{i} a_{ij} y_{j}</script></p>
+
+<p>Thm</p>
+<ol>
+  <li><script type="math/tex">v_{1} \leq v_{2}</script> (<script type="math/tex">v_{1}</script>은 그냥 행렬식으로 표현한 것. 귀찮으므로 생략)</li>
+</ol>
 
 <h3 id="85-the-fundamental-theorem">8.5 The Fundamental Theorem</h3>
 <p>아이디어 순서:</p>
@@ -391,7 +405,7 @@ Thm2)</p>
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BSummary%5D+An+Intro+Lin.Prog+%26+Game+Theory-Chapter8%20http%3A%2F%2Flocalhost%3A4000%2Fmas%2Fgame%2520theory%2Flp-gt1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=An+Intro+Lin.Prog+%26+Game+Theory-Chapter8%20http%3A%2F%2Flocalhost%3A4000%2Fmas%2Fgame%2520theory%2Flp-gt1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fmas%2Fgame%2520theory%2Flp-gt1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -402,7 +416,7 @@ Thm2)</p>
       
   <nav class="pagination">
     
-      <a href="/book/mas-chap4/" class="pagination--pager" title="[Summary] Multi-agent Systems-Chapter4
+      <a href="/book/mas-chap4/" class="pagination--pager" title="Multi-agent Systems-Chapter4
 ">Previous</a>
     
     
@@ -421,6 +435,35 @@ Thm2)</p>
     <div class="page__related">
       <h4 class="page__related-title">You may also enjoy</h4>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/images/image-test/" rel="permalink">image test
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">This is the test post for uploading images!
+
+</p>
+  </article>
+</div>
+
         
           
 
@@ -491,7 +534,7 @@ Thm2)</p>
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/book/mas-chap4/" rel="permalink">[Summary] Multi-agent Systems-Chapter4
+        <a href="/book/mas-chap4/" rel="permalink">Multi-agent Systems-Chapter4
 </a>
       
     </h2>
@@ -505,35 +548,6 @@ Thm2)</p>
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">3장에서는 게임에 있어서 최적 솔루션이 무엇인가(혹은 Nash Euilibrium) 이외에 다른 대안이 없는지에 대해서다. 4장에서는 그 솔루션을 얻는데 있어 계산이 얼마나 복잡할 것인가에 대한 문제를 다루게 된다. 자연스럽게 가장 간단한 2명의 플레이어, 제로섬 normal-fo...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/blog/tip1/" rel="permalink">Ubuntu 18.04 설치
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">간만에 연구실 출근해서 컴퓨터에 우분투18.04+윈도우10 설치를 했습니다. 원래 맥북을 써왔는데 연구실에서 윈도우를 쓰려니 도무지  적응이 안되어서 벼르고 있던 우분투를 깔아버렸네요.
-
-</p>
   </article>
 </div>
 

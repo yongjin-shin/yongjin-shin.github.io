@@ -9,12 +9,12 @@ var store = [{
         "tags": ["팁","우분투"],
         "url": "http://localhost:4000/blog/tip1/",
         "teaser":null},{
-        "title": "[Summary] Multi-agent Systems-Chapter4",
+        "title": "Multi-agent Systems-Chapter4",
         "excerpt":"3장에서는 게임에 있어서 최적 솔루션이 무엇인가(혹은 Nash Euilibrium) 이외에 다른 대안이 없는지에 대해서다. 4장에서는 그 솔루션을 얻는데 있어 계산이 얼마나 복잡할 것인가에 대한 문제를 다루게 된다. 자연스럽게 가장 간단한 2명의 플레이어, 제로섬 normal-form게임으로부터 시작하여, general-sum게임과 n플레이어+general-sum게임으로까지 확장된다. 더불어 3장에서 살펴보았던 maxmin/minmax전략과 우위전략, correlated equilbria 전략까지 솔루션을 얻는데 얼마나 복잡한지에 대한...","categories": ["Book"],
         "tags": ["MAS","Summary"],
         "url": "http://localhost:4000/book/mas-chap4/",
         "teaser":null},{
-        "title": "[Summary] An Intro Lin.Prog & Game Theory-Chapter8",
+        "title": "An Intro Lin.Prog & Game Theory-Chapter8",
         "excerpt":"Multi-agent Systems의 극악무도한 내용 때문에 다른 강의들 뒤적이다가 뭔가 LP를 다시 봐야할 것 같아서, 예전에 대학원 시험 때문에 공부했던 “An Introduction Linear Programming and Game Theory”를 다시 펼쳐봤습니다..신세계를 맛보았네요. 아주 아주 간략한 포인트만 정리해두도록 하겠습니다. (참고로 이 책에서는 오직 Two Person Zero Sum game만을 다루고 있어서, 결국 그 책으로 돌아가야만...","categories": ["MAS","Game Theory"],
         "tags": ["Book","Summary"],
         "url": "http://localhost:4000/mas/game%20theory/lp-gt1/",
@@ -28,4 +28,9 @@ var store = [{
         "excerpt":"논문읽다가 여전히 제대로 모르는 것 같아서 Berkeley 강의를 들었다. 매번 강의 듣고 치워버렸는데, 다른 공부하기 이전에 정리를 해보고 넘어가려고 한다. (생각 정리용) Vanilla Policy Gradient RL에서 하고자 하는 것은 어떠한 tast에서 가장 좋은 결과를 얻기 위한 Action을 찾아내는 것이다. (스탠포드에서는 Sequential Decision Making이라고 했다) 따라서 이를 나타내보자면, 우리가 원하는 것은...","categories": ["RL"],
         "tags": ["Policy Gradients","Actor-Critic Algorithms"],
         "url": "http://localhost:4000/rl/actor-critic-and-policy-gradients/",
+        "teaser":null},{
+        "title": "image test",
+        "excerpt":"This is the test post for uploading images!      ","categories": ["images"],
+        "tags": ["test"],
+        "url": "http://localhost:4000/images/image-test/",
         "teaser":null}]
