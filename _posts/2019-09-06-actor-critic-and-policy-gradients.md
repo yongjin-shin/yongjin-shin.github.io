@@ -18,7 +18,7 @@ tags:
 RL에서 하고자 하는 것은 어떠한 tast에서 가장 좋은 결과를 얻기 위한 Action을 찾아내는 것이다. (스탠포드에서는 Sequential Decision Making이라고 했다) 따라서 이를 나타내보자면,
 
 
-$$ \theta^{*} = argmax_{\theta} \mathbb{E}_{\tau} \sim p_{theta}(\tau) \sum_{t} r(s_{t}, a_{t}]$$
+$$ \theta^{*} = argmax_{\theta} \mathbb{E}_{\tau} \sim p_{theta}(\tau) \sum_{t} r(s_{t}, a_{t})]$$
 
 
 우리가 원하는 것은 $$\theta$$의 optimal 값이 되겠다. 여기서 기대값을 구해야 하는데, 가장 쉽게는 Monte Calro를 이용하면 된다. 물론 몬테카를로가 기대값으로 수렴하기 위해서는 충분히 많은 샘플이 있어야 하고, RL에서는 특정 $$s_0, a_0$$부터 $$s_{des}, a_{des}$$까지 모두 샘플을 얻어야만 한다. (여기서 문제점은 어느 세월에 이러한 샘플링을 할 것인가에 대한 물음이 따르게 된다.) 여튼, 몬테카를로는 하기 싫기 때문에(왜??) Gradient descent/ascent를 하고자 한다. 이걸 도입하는 순간 Global Optimum은 포기한게 아닐까? 뭐, global optimum을 구하면 좋기는 한데 global이고 나발이고 일단 optimum부터 찾는게 문제이니 일단 구해보자. 증명과정 약간의 log 트릭을 사용하면 어째저째 할 수 있으니 생략하고, 결과는
@@ -30,11 +30,7 @@ $$ \nabla_{\theta}J(\theta) = \mathbb{E}_{\tau \sim \pi_{\theta}}(\tau) \big [ \
 흠, 그런데 어쨌거나 샘플링을 많이 한다음 derivative를 계산하고 $$\theta$$를 업데이트 해줘야 한다. $$(\theta \leftarrow \theta + \alpha \nabla_{\theta}J(\theta))$$
 
 
-위의 derivative를 조금 더 음미를 해보자면, 리워드 합의 기대값이 큰 방향으로 $$\theta$$를 이동시켜주는 것이다. (마치 로지스틱 리그레션처럼) 근데 위의 수식에서 리워드 합의 기대값  
-
-$$\sum_{t=1}^{T} r(a_{t}|s_{t})$$     
-
-부분만 제거해주면, $$J_{\theta}$$의 MLE와 동일하게 된다. 나중에 텐서플로우에서는 MLE를 잘해준 다음에 각각의 샘플에 리워드 합의 기대값만 weight sum형식으로 진행해주면 된다는 말이다.
+위의 derivative를 조금 더 음미를 해보자면, 리워드 합의 기대값이 큰 방향으로 $$\theta$$를 이동시켜주는 것이다. (마치 로지스틱 리그레션처럼) 근데 위의 수식에서 리워드 합의 기대값  $$\sum_{t=1}^{T} r(a_{t}|s_{t})$$ 부분만 제거해주면, $$J_{\theta}$$의 MLE와 동일하게 된다. 나중에 텐서플로우에서는 MLE를 잘해준 다음에 각각의 샘플에 리워드 합의 기대값만 weight sum형식으로 진행해주면 된다는 말이다.
 
 
 ## Reducing Variance
@@ -54,11 +50,7 @@ $$b = \frac{1}{N}\sum_{i=1}^{N}r(\tau_{i})$$
 (여러가지 수식들로 풀어쓸 수 있지만, 아직 vim이랑 markdown이 익숙하지 않으므로 여기까지만...)
 
 ## Actor-Critic Algorithms
-그런데 위의 식에서 weight 부분은 어쨌거나 estimate이다. 왜냐하면 우리가 원하는 완벽한 $$\theta^{*}$$에 의해서 샘플링된 $$s_{t}, a_{t}$$가 아니기 때문이다. 뿐만 아니라, 분산을 줄이기 위해서 계산을 할 때 오로지 해당 시점에서의 샘플들만 고려를 하지, 전체 sequence의 샘플을 모두 고려하는 과정이 없다. 그렇기 때문에 biased는 되어있을지라도 여전히 분산은 높은 실정이다. 그렇다면 우리가 앞에서 계산한 것처럼 계산을 해주는 것보다 더 정확하게 계산할 수는 없을까? 어차피 우리는 $$b$$로 평균을 구한다. 차라리 Q-function에서 action들까지 평균치를 처리한 value function을 이용하면 어떨까? 즉, 
-    
-$$V^{\pi}(s_{t}) = \mathbb{E}_{a_{t} \sim \pi_{0}(a_{t}|s_{t})}[Q_{\pi}(s_{t}|a_{t})]$$
-
-를 사용하기로 해보자. 여기서 Advantage function이 튀어나온다.
+그런데 위의 식에서 weight 부분은 어쨌거나 estimate이다. 왜냐하면 우리가 원하는 완벽한 $$\theta^{*}$$에 의해서 샘플링된 $$s_{t}, a_{t}$$가 아니기 때문이다. 뿐만 아니라, 분산을 줄이기 위해서 계산을 할 때 오로지 해당 시점에서의 샘플들만 고려를 하지, 전체 sequence의 샘플을 모두 고려하는 과정이 없다. 그렇기 때문에 biased는 되어있을지라도 여전히 분산은 높은 실정이다. 그렇다면 우리가 앞에서 계산한 것처럼 계산을 해주는 것보다 더 정확하게 계산할 수는 없을까? 어차피 우리는 $$b$$로 평균을 구한다. 차라리 Q-function에서 action들까지 평균치를 처리한 value function을 이용하면 어떨까? 즉,  $$V^{\pi}(s_{t}) = \mathbb{E}_{a_{t} \sim \pi_{0}(a_{t}|s_{t})}[Q_{\pi}(s_{t}|a_{t})]$$를 사용하기로 해보자. 여기서 Advantage function이 튀어나온다.
 
 $$A^{\pi}(s_{t}, a_{t}) = Q^{\pi}(s_{t}, a_{t}) - V^{\pi}(s_{t})$$
 
