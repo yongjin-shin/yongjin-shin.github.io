@@ -79,3 +79,8 @@ $$\mathit{L}(\phi) = \frac{1}{2}\sum_{i}||V^{\pi}_{\phi}(s_{i}) - y_{i}||^{2}$$
 추가적으로 언급할 부분은 Advantage function을 구성할 때 bias-variance tradeoff 이슈가 생긴다. 만약 우리가 더 많은 variance를 허용할 수 없다면, 우리는 더 많은 실제 샘플을 추가해서 진행하면 된다. 그럴수록 우리는 더 많은 bias가 생길 수 밖에 없다. 이 부분은 $$TD(\lambda)$$의 개념을 떠올리면 쉽게 이해가 갈 것이다.
 
 마지막으로 Actor-Critic의 개념은 Actor는 실제로 action을 담담하게 되는 Q-function 쪽을 의미하게 되고, critic은 기준점이 되는 V-function 을 의미하게 된다.
+
+참고>
+1. <https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html#actor-critic>
+2. <https://jeremykun.com/2015/04/06/markov-chain-monte-carlo-without-all-the-bullshit/>
+3. <http://rail.eecs.berkeley.edu/deeprlcourse-fa17/f17docs/>
