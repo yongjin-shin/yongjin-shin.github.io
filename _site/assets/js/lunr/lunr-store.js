@@ -29,8 +29,8 @@ var store = [{
         "tags": ["Policy Gradients","Actor-Critic Algorithms"],
         "url": "http://localhost:4000/rl/actor-critic-and-policy-gradients/",
         "teaser":null},{
-        "title": "image test",
-        "excerpt":"This is the test post for uploading images!      ","categories": ["images"],
-        "tags": ["test"],
-        "url": "http://localhost:4000/images/image-test/",
+        "title": "Paper Review",
+        "excerpt":"An Analysis of Stochastic Game Theory for Multiagent RL (M.Bowling et al. 2000) There is not likely to be an optimal solution to a stochastic game that is indep. of the other agents. The algorithms differ on what assumptions they make about the SG and the learning process. The main...","categories": ["review"],
+        "tags": ["RL","GT"],
+        "url": "http://localhost:4000/review/NE-and-MARL/",
         "teaser":null}]

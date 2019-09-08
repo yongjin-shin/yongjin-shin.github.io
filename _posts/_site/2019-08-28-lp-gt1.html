@@ -1,0 +1,41 @@
+<p>Multi-agent Systems의 극악무도한 내용 때문에 다른 강의들 뒤적이다가 뭔가 LP를 다시 봐야할 것 같아서, 예전에 대학원 시험 때문에 공부했던 “An Introduction Linear Programming and Game Theory”를 다시 펼쳐봤습니다..신세계를 맛보았네요. 아주 아주 간략한 포인트만 정리해두도록 하겠습니다. (참고로 이 책에서는 오직 Two Person Zero Sum game만을 다루고 있어서, 결국 <strong>그</strong> 책으로 돌아가야만 합니다..아..)</p>
+
+<h3 id="82-some-principles-of-decision-making-in-game-theory">8.2 Some Principles of Decision Making in Game Theory</h3>
+<p>Principle</p>
+
+<ol>
+  <li>Each player acts to maximize his security level.</li>
+  <li>The players tend to strategy pairs that are in equilibrium.</li>
+</ol>
+
+<p>간단하게, 각자 보수적인 선택을 하는 방향으로 갑니다. 어떻게 더 많이 얻을까가 아니라, 잃는데 얼머나 덜 잃을까를 선택하는 것입니다. 그리고 평형상태로 다가가는 것이지요. Principle 1은 Maxmin과 Minmax에 대한 idea를 던져주고 principle 2에서 그 유명한 <script type="math/tex">Maxmin \leq Minmax</script>에 대한 얘기를 끄집어 냅니다.</p>
+
+<h3 id="83-saddle-points">8.3 Saddle Points</h3>
+<p>Thm</p>
+
+<ol>
+  <li>
+    <script type="math/tex; mode=display">u_{1} \leq u_{2}</script>
+  </li>
+  <li><script type="math/tex">U_{1} = u_{2}</script> iff the payoff matrix A has a saddle point.</li>
+</ol>
+
+<p>Def) An entry <script type="math/tex">a_{hk}</script> of a payoff amtrix A is a saddle point if <script type="math/tex">Min_{1\leq j \leq n} a_{hj} = a_{hk} = Max_{1 \leq i \leq m} a_{ik}</script>, that is, if <script type="math/tex">a_{hk}</script> is the minimum of row h and the maximum of column k.</p>
+
+<p>뭔가 주저리 주저리 말이 많은데, 그냥 간단하게 Saddle Point 떠올리고 Maxmin과 Minmax의 안장점이다. 라고 하면되는데, Thm1의 증명은 직관적으로 생각할 수 있는데 책에 있는 매트릭스로 설명해놓은 부분이 너무 좋네요. (쉬우니깐)</p>
+
+<h3 id="84-mixed-strategies">8.4 Mixed Strategies</h3>
+<p>Def) Mixed Strategies for <script type="math/tex">P_{1}</script> is a vector <script type="math/tex">X = (x_{1}, ... x_{m})</script> of non-neg <script type="math/tex">\mathbb{R}</script> satisfying probability axioms.</p>
+
+<p>Def) The expected payoff: <script type="math/tex">XAY^{T} = \sum_{1 \leq i \leq m} \sum_{1 \leq j \leq n} x_{i} a_{ij} y_{j}</script></p>
+
+<p>Thm</p>
+<ol>
+  <li><script type="math/tex">v_{1} \leq v_{2}</script> (<script type="math/tex">v_{1}</script>은 그냥 행렬식으로 표현한 것. 귀찮으므로 생략)</li>
+</ol>
+
+<h3 id="85-the-fundamental-theorem">8.5 The Fundamental Theorem</h3>
+<p>아이디어 순서:</p>
+
+<p>8.4에서 나타낸 표기법들은 쫙 늘여써주면, Maxmin은 minization을 하는 primal problem이 되고, Minmax는 maximization을 하는 dual problem으로 나타나게 된다. 이때, payoff matrix가 0 이상일 경우에는 Duality Theorem에 의해서 반드시 finite solution 이 존재하게 된다! 이것이 결국 equilibrium이 된다. 음수가 포함된 payoff matrix에는 어떻게 잘 하면 된다고 하는데, <del>자세한 설명은 생략합니다</del></p>
+

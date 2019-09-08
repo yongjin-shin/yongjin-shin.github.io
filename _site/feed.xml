@@ -1,6 +1,246 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-07T23:47:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Such a Nomad Life</title><subtitle>Blogging With Minimal Effort..!</subtitle><author><name>Yongjin Shin</name></author><entry><title type="html">image test</title><link href="http://localhost:4000/images/image-test/" rel="alternate" type="text/html" title="image test" /><published>2019-09-07T00:00:00+09:00</published><updated>2019-09-07T00:00:00+09:00</updated><id>http://localhost:4000/images/image-test</id><content type="html" xml:base="http://localhost:4000/images/image-test/">&lt;p&gt;This is the test post for uploading images!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-08T16:17:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Such a Nomad Life</title><subtitle>Blogging With Minimal Effort..!</subtitle><author><name>Yongjin Shin</name></author><entry><title type="html">Paper Review</title><link href="http://localhost:4000/review/NE-and-MARL/" rel="alternate" type="text/html" title="Paper Review" /><published>2019-09-08T00:00:00+09:00</published><updated>2019-09-08T00:00:00+09:00</updated><id>http://localhost:4000/review/NE-and-MARL</id><content type="html" xml:base="http://localhost:4000/review/NE-and-MARL/">&lt;h2 id=&quot;an-analysis-of-stochastic-game-theory-for-multiagent-rl-mbowling-et-al-2000&quot;&gt;An Analysis of Stochastic Game Theory for Multiagent RL (M.Bowling et al. 2000)&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2019-09-07-image-test/Quotefancy-1756126-3840x2160.jpg&quot; alt=&quot;Quotefancy-1756126-3840x2160&quot; /&gt;&lt;/p&gt;</content><author><name>Yongjin Shin</name></author><category term="test" /><summary type="html">This is the test post for uploading images!</summary></entry><entry><title type="html">Actor Critic And Policy Gradients</title><link href="http://localhost:4000/rl/actor-critic-and-policy-gradients/" rel="alternate" type="text/html" title="Actor Critic And Policy Gradients" /><published>2019-09-06T00:00:00+09:00</published><updated>2019-09-06T00:00:00+09:00</updated><id>http://localhost:4000/rl/actor-critic-and-policy-gradients</id><content type="html" xml:base="http://localhost:4000/rl/actor-critic-and-policy-gradients/">&lt;p&gt;논문읽다가 여전히 제대로 모르는 것 같아서 Berkeley 강의를 들었다. 매번 강의 듣고 치워버렸는데, 다른 공부하기 이전에 정리를 해보고 넘어가려고 한다. (생각 정리용)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;There is not likely to be an optimal solution to a stochastic game that is indep. of the other agents.&lt;/li&gt;
+  &lt;li&gt;The algorithms differ on what assumptions they make about the SG and the learning process.
+    &lt;ul&gt;
+      &lt;li&gt;The main differences are whether a model for the game is available and the nature of the learning process.
+        &lt;ul&gt;
+          &lt;li&gt;Most GT algorithms require a model of the environment, since they make use of the transition, T, and reward &lt;script type=&quot;math/tex&quot;&gt;R_i&lt;/script&gt;, functions.
+            &lt;ul&gt;
+              &lt;li&gt;The goal of these algorithms is to compute the quilibrium value for the game rather than finding equilibrium policies.&lt;/li&gt;
+              &lt;li&gt;“Value” operator refers to algirhtms for solving matrix game, either LP or QP.&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;RL assume the world is not known, and ony observations of the T and R functions are available as the agents act in the environment.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Solutions from Game Theory&lt;/strong&gt;: These algorithms learn a value function over states, &lt;script type=&quot;math/tex&quot;&gt;V(s)&lt;/script&gt;. The goal is for &lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt; to converge to the optimal value function &lt;script type=&quot;math/tex&quot;&gt;V*&lt;/script&gt;.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Shapley: &lt;em&gt;Zero-sum SGs&lt;/em&gt;. Uses a TD learning to backup values fo next states into a simple matrix game, &lt;script type=&quot;math/tex&quot;&gt;G_{s}(V)&lt;/script&gt;. Nearly identical to value iteration for MDPs, with the “max” operator replaced by the “Value” operator.&lt;/li&gt;
+      &lt;li&gt;Pollatschek &amp;amp; Avi-Itzhak: Introduced an extension of policy iteration. Each player selects the quilibrium policy according to the current value function, makeing use  fo the same TD matrix &lt;script type=&quot;math/tex&quot;&gt;G_{S}(V)&lt;/script&gt;.
+        &lt;ul&gt;
+          &lt;li&gt;cons: Only guaranteed to converge if the transition function T and discount factor &lt;script type=&quot;math/tex&quot;&gt;\gamma&lt;/script&gt; satisfies a certain property.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Solutions from RL&lt;/strong&gt;: The agents are required to act in the environment in order to gain observations of &lt;script type=&quot;math/tex&quot;&gt;T&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt;. These algorithms focus on the behavior of a singe agent, and seek to find the quilibrium policy for that agent.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Minimax-Q: Extended the traditional Q-learning algorithms for MDPs to &lt;em&gt;zero-sum SG&lt;/em&gt;. It replaces the “max”operator with the “Value” operator. This is the off-policy RL equivalent of Shapley’s “value iteration” algorithm.
+        &lt;ul&gt;
+          &lt;li&gt;cons: converge to the SG’s equilibrium solution, assuming the other agent executes all of its actions infinitely often.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Nash-Q: Extended the Minimax-Q to &lt;em&gt;general-sum algirhtm&lt;/em&gt;. Requires that each agent maintain Q values for all the other agents. LP solution is replaced with the QP solution.
+        &lt;ul&gt;
+          &lt;li&gt;cons: the game must have a unique equilibrium.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/images/2019-09-08-NE-and-MARL/table_GT_RL.png&quot; alt=&quot;table_GT_RL&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Others&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Fictitous Play
+        &lt;ul&gt;
+          &lt;li&gt;assumes opponents play stationary strategies.&lt;/li&gt;
+          &lt;li&gt;maintains information about the average value of each action&lt;/li&gt;
+          &lt;li&gt;then deterministically selects the action that has done the best in the past.&lt;/li&gt;
+          &lt;li&gt;&lt;em&gt;nearly identical to single agent value iteration with a uniform weighting of past experience&lt;/em&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Opponent Modeling/Joint action learners(JAL)
+        &lt;ul&gt;
+          &lt;li&gt;similar behavior to fictitous play.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;multiagent-rl-for-multi-robot-systems-a-survey-e-yang-et-al-2004&quot;&gt;Multiagent RL for multi-robot systems: A Survey (E Yang et al. 2004)&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Frameworks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;SG-Based&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;pros)&lt;/p&gt;
+
+    &lt;p&gt;cons) Always require to converge to desirable equilibria, which means sufficient exploration of strategy space is needed before convergence can be established. Agents have to find and even identify the equilibria before the policy is used at the current state.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Algorithms&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;p&gt;Minimax-Q-learning&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;Nash-Q-learning&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;Friend-or-Foe Q-learning&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;rQ-learning&lt;/p&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Fictitous Play&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;pros) Capable of finding equilibrium in both zeor-sum and general-sum games&lt;/p&gt;
+
+    &lt;p&gt;cons) adopts deterministic policies and cannot play stochastic strategies&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Algorithms&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;JAL&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Bayesian&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;pros) Agent can use priors to reason about how its action will influence the behaviors of other games.&lt;/p&gt;
+
+    &lt;p&gt;cons) Some prior density over possible dynamics and reward distirbution ahve to be known by a learning agent in advance.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Policy Iteration&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;pros) Can provide a direct way to find the optimal strategy in the policy space.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Algorithms
+        &lt;ul&gt;
+          &lt;li&gt;WoLF-PHC: complete proof for the convergence properties has not been provied. non-markovian environment are not taken into account at all.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;a-comprehensive-survey-of-multi-agent-reinforcement-learning-lbusoniu-et-al-2008&quot;&gt;A comprehensive survey of multi-agent reinforcement learning (L.Busoniu et al. 2008)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Challenges in MARL&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;The exponential growth of the discrete state-action space in the number of state and action variables
+        &lt;ul&gt;
+          &lt;li&gt;the curse of dimensionality&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Specifying a good MARL goal in the general stochastic game&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;stability: convergence to a stationary policy&lt;/li&gt;
+          &lt;li&gt;adaptation: performance is maintained/improved as the other agents are changing their policies&lt;/li&gt;
+          &lt;li&gt;&lt;img src=&quot;/assets/images/2019-09-08-NE-and-MARL/stability_vs_adaptation.png&quot; alt=&quot;stability_vs_adaptation&quot; /&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Nonstationarity of the multi-agent learning problem&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;each agent is faced with a moving-taget learning problem&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Exploration-Exploitation trade-off&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;need to obtain information not only about the environment but also about the other agents&lt;/li&gt;
+          &lt;li&gt;too much exploration can destabilize the learning dynamics&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Texanomy&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Task Types&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;&lt;img src=&quot;/assets/images/2019-09-08-NE-and-MARL/marl_texanomy.png&quot; alt=&quot;marl_texanomy&quot; /&gt;&lt;/li&gt;
+          &lt;li&gt;Mixed Task
+            &lt;ul&gt;
+              &lt;li&gt;Single-agent RL&lt;/li&gt;
+              &lt;li&gt;Agent-independent methods
+                &lt;ul&gt;
+                  &lt;li&gt;Nash-Q learning&lt;/li&gt;
+                  &lt;li&gt;Correlated Equilibrium Q learning (CE-Q)&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;Agent-tracking methods: Convergence to stationary strategies is not a requirement.
+                &lt;ul&gt;
+                  &lt;li&gt;Static: fictitious play, MetaStrategy, Hyper-Q&lt;/li&gt;
+                  &lt;li&gt;Dynamic: Non-Stationary Converging Policies(NSCP),&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;Agent-aware methods: target convergence, as well as adaptation to the other agents.
+                &lt;ul&gt;
+                  &lt;li&gt;Static: AWESOME, IGA/WoLF-IGA/GIGA/GIGA-WoLF,&lt;/li&gt;
+                  &lt;li&gt;Dynamic: WoLF-PHC, EXORL&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;p&gt;&lt;em&gt;–&amp;gt; many algorithms for mixed SGs suffer from the curse of dimensionality, and are sensitive to imperfect observations; the latter holds especially for agent-independent methods.&lt;/em&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Field of origin&lt;/p&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;img src=&quot;/assets/images/2019-09-08-NE-and-MARL/field%20of%20origin.png&quot; alt=&quot;field of origin&quot; /&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;deep-rl-for-mas-a-review-of-challenges-solutions-and-applications-tnguyen-et-al-2019&quot;&gt;Deep RL for MAS: A Review of Challenges, Solutions and Applications (T.Nguyen et al, 2019)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Challenges
+    &lt;ul&gt;
+      &lt;li&gt;Non-stationarity&lt;/li&gt;
+      &lt;li&gt;Partial observability&lt;/li&gt;
+      &lt;li&gt;MAS training schemes&lt;/li&gt;
+      &lt;li&gt;Continous action spaces&lt;/li&gt;
+      &lt;li&gt;Transfer Learning&lt;/li&gt;
+      &lt;li&gt;&lt;img src=&quot;/assets/images/2019-09-08-NE-and-MARL/madrl_texanomy.png&quot; alt=&quot;madrl_texanomy&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Yongjin Shin</name></author><category term="RL" /><category term="GT" /><summary type="html">An Analysis of Stochastic Game Theory for Multiagent RL (M.Bowling et al. 2000)</summary></entry><entry><title type="html">Actor Critic And Policy Gradients</title><link href="http://localhost:4000/rl/actor-critic-and-policy-gradients/" rel="alternate" type="text/html" title="Actor Critic And Policy Gradients" /><published>2019-09-06T00:00:00+09:00</published><updated>2019-09-06T00:00:00+09:00</updated><id>http://localhost:4000/rl/actor-critic-and-policy-gradients</id><content type="html" xml:base="http://localhost:4000/rl/actor-critic-and-policy-gradients/">&lt;p&gt;논문읽다가 여전히 제대로 모르는 것 같아서 Berkeley 강의를 들었다. 매번 강의 듣고 치워버렸는데, 다른 공부하기 이전에 정리를 해보고 넘어가려고 한다. (생각 정리용)&lt;/p&gt;
 
 &lt;h2 id=&quot;vanilla-policy-gradient&quot;&gt;Vanilla Policy Gradient&lt;/h2&gt;
 
