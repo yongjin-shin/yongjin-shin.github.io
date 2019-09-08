@@ -1,5 +1,5 @@
 ---
-title: "Paper Review"
+title: "Papers Review"
 description: "Nash Equilibrium and Multiagent RL"
 usemathjax: true
 
@@ -185,3 +185,10 @@ tags:
   * Continous action spaces
   * Transfer Learning
   * ![madrl_texanomy](/assets/images/2019-09-08-NE-and-MARL/madrl_texanomy.png)
+
+
+
+## Need To Read
+
+1. <https://arxiv.org/abs/1904.10554>
+2. <https://arxiv.org/abs/1903.09376>
