@@ -1,6 +1,5 @@
 ---
 title: "Multi Agent Actor-Critic for Mixed Cooperation-Competitve Environments"
-description: "Nash Equilibrium and Multiagent RL"
 usemathjax: true
 
 categories:
@@ -10,11 +9,9 @@ tags:
 - Actor-Critic
 ---
 
-[PDF](https://arxiv.org/abs/1706.02275)
+이 논문을 읽게 된 이유: Homogeneity와 Heterogeneity에 대한 고민. Policy Parameter를 Agent 간에 공유가 이루어질 경우에는 Homogenous한 가정 밖에 할 수 없다. 이것을 어떻게 깰 것인가? [PDF](https://arxiv.org/abs/1706.02275)
 
-이 논문을 읽게 된 이유: Homogeneity와 Heterogeneity에 대한 고민. Policy Parameter를 Agent 간에 공유가 이루어질 경우에는 Homogenous한 가정 밖에 할 수 없다. 이것을 어떻게 깰 것인가?
 
----
 
 ## Introduction
 
@@ -74,26 +71,26 @@ tags:
 
   1) $$N$$ agents
 
-  2) Policy parameters $$\bold{\theta}=\{ \theta_{1}, \cdots, \theta_{N}\}$$
+  2) Policy parameters $$\theta=\{ \theta_{1}, \cdots, \theta_{N}\}$$
 
-  3) Policy $$\bold{\pi}=\{\pi_{1}, \cdots, \pi_{N}\}$$
+  3) Policy $$\pi=\{\pi_{1}, \cdots, \pi_{N}\}$$
 
-  4) Some state information $$\bold{x} = (o_{1}, \cdots, o_{N})$$
+  4) Some state information $$x = (o_{1}, \cdots, o_{N})$$
 
-  5) Centralized action-value function $$Q^{\pi}_{i}(\bold{x}, a_{1}, \cdots, a_{N})$$ 
+  5) Centralized action-value function $$Q^{\pi}_{i}(x, a_{1}, \cdots, a_{N})$$ 
   	→ Learned separately, agents can have arbitrary reward structures, including conflicitng rewards
 
   6) Gradient of expected return for agent $$i$$ ($$\mathcal{J}(\theta_{i})=\mathbb{E}[R_{i}]$$) :
-  		$$\nabla_{\theta_{i}}\mathcal{J}(\theta_{i}) = \mathbb{E}_{s\sim p^{\mu}, a_{i} \sim \pi_{i}} \big[ \nabla_{\theta_{i}} \log{\pi_{i}(a_{i}|o_{i})} Q^{\pi}_{i}(\bold{x}, a_{1}, \cdots, a_{N}) \big]$$					
+  		$$\nabla_{\theta_{i}}\mathcal{J}(\theta_{i}) = \mathbb{E}_{s\sim p^{\mu}, a_{i} \sim \pi_{i}} \big[ \nabla_{\theta_{i}} \log{\pi_{i}(a_{i}|o_{i})} Q^{\pi}_{i}(x, a_{1}, \cdots, a_{N}) \big]$$					
 
   7) [Deteministic Policies](https://towardsdatascience.com/deep-deterministic-policy-gradients-explained-2d94655a9b7b): 
-  		$$\nabla_{\theta_{i}}\mathcal{J}(\mu_{i}) = \mathbb{E}_{\bold{x},a \sim \mathcal{D}} \big[ \nabla_{\theta_{i}} \mu_{i}(a_{i}|o_{i}) \nabla_{a_{i}}Q^{\mu}_{i}(\bold{x}, a_{1}, \cdots, a_{N})|_{a_{i} = \mu_{i}(o_{i})} \big]$$, 
-  		where the experience replay buffer $$\mathcal{D}$$ contains the tuples $$(\bold{x}, \bold{x'}, a_{1}, \cdots, a_{N}, r_{1}, \cdots, r_{N})$$
-  *(NOTE: $$'$$ means a delayed version, say $$\mu'$$ means the target policy network and $$\bold{x'}$$ is sampled from the target networks. )*
+  		$$\nabla_{\theta_{i}}\mathcal{J}(\mu_{i}) = \mathbb{E}_{x,a \sim \mathcal{D}} \big[ \nabla_{\theta_{i}} \mu_{i}(a_{i}|o_{i}) \nabla_{a_{i}}Q^{\mu}_{i}(x, a_{1}, \cdots, a_{N})|_{a_{i} = \mu_{i}(o_{i})} \big]$$, 
+  		where the experience replay buffer $$\mathcal{D}$$ contains the tuples $$(x, x', a_{1}, \cdots, a_{N}, r_{1}, \cdots, r_{N})$$
+  *(NOTE: $$'$$ means a delayed version, say $$\mu'$$ means the target policy network and $$x'$$ is sampled from the target networks. )*
 
   8) Updated as:
-  		$$\mathcal{L}(\theta_{i}) = \mathbb{E}_{\bold{x},a,r,\bold{x'}}\big[ \bold( Q^{\bold{\mu}_{i}}(\bold{x}, a_{1}, \cdots, a_{N})-y \big)^{2} \big]$$
-  		$$y = r_{i} + \gamma Q^{\mu'}_{i}(\bold{x'}, a'_{1}, \cdots, a'_{N})|_{a'_{j}=\bold{\mu'_{j}}(o_j)}$$ where $$\mu' = \{ \mu_{\theta'_{1}}, \cdots, \mu_{\theta'_{N}} \}$$ 
+  		$$\mathcal{L}(\theta_{i}) = \mathbb{E}_{x,a,r,x'}\big[ \big( Q^{\mu_{i}}(x, a_{1}, \cdots, a_{N})-y \big)^{2} \big]$$
+  		$$y = r_{i} + \gamma Q^{\mu'}_{i}(x', a'_{1}, \cdots, a'_{N})|_{a'_{j}=\mu'_{j}(o_j)}$$ where $$\mu' = \{ \mu_{\theta'_{1}}, \cdots, \mu_{\theta'_{N}} \}$$ 
   		
 
   *→ 음미를 해보자면, 일반적인 DDPG에서는 $$\theta, \theta'$$를 알아야 하는데 어차피 이 값들은 나 자신(this.agent)이므로 당연히 알고 있어야 하는 파라미터이다. 그런데 여기서는 다른 Agent의 private한 정보를 참조해야만 업데이트가 가능하다. 왜냐? $$a'$$를 만들어내야 $$y$$를 구할 수 있기 때문! 그렇기 때문에 여기서는 Centralized Learning이라 주장한다. 애당초 Multiagent에서 남들의 정보를 안다는 가정 자체가 말이 안되므로, Learning할 때까지만은 Centralized하게 관리하는 형식으로 가는듯 하다. 재미있는 점은 마치 model-based처럼 외부의 환경을 아는듯 학습을 하지만, 그럼에도 불구하고 학습하는 대상은 완전한 환경(environment)가 아니라 내 시점에서는 환경처럼 보이는 다른 Agent의 속성인 것이다.*
@@ -108,10 +105,11 @@ tags:
 
   * Each agent $$i$$ can additionally maintain an approximation $$\hat{\mu}_{\phi^{j}_{i}}$$ to the true policy of agent $$j, \mu_j$$, where $$\phi$$ are the parameters of the approximation.
 
-  * This approximate policy is learned by maximizing the log probability of agent $$j$$'s actions, with [an entropy regularizer](http://proceedings.mlr.press/v97/ahmed19a.html): $$\mathcal{L}(\phi^{j}_{i}) = -\mathbb{E}_{o_j, a_{j}}[\log{\hat{\mu}^{j}_{i}(a_j | o_j)} + \lambda H(\hat{\mu}^{j}_{i})]$$
-
-    ​	→ Thus, $$\hat{y} = r_{i} + \gamma Q^{\bold{\mu'}}_{i}(\bold{x'}, \hat{\mu'}^{1}_{i}(o_1), \cdots, \mu'_{i}(o_{i}), \cdots, \hat{\mu'}^{N}_{i}(o_{N}))$$
-
+  * This approximate policy is learned by maximizing the log probability of agent $$j$$'s actions, with [an entropy regularizer](http://proceedings.mlr.press/v97/ahmed19a.html): 
+  $$\mathcal{L}(\phi^{j}_{i}) = -\mathbb{E}_{o_j, a_{j}}[\log{\hat{\mu}^{j}_{i}(a_j | o_j)} + \lambda H(\hat{\mu}^{j}_{i})]$$
+    
+  ​	→ Thus, $$\hat{y} = r_{i} + \gamma Q^{\mu'}_{i}(x', \hat{\mu'}^{1}_{i}(o_1), \cdots, \mu'_{i}(o_{i}), \cdots, \hat{\mu'}^{N}_{i}(o_{N}))$$
+    
     
 
 * ### Policy Ensembles:
@@ -119,7 +117,7 @@ tags:
   * Propose to train a collection of $$K$ different sub-policies.
   * For agent $$i$$, maximizing the ensemble objective: $$\mathcal{J}_{e}(\mu_i) = \mathbb{E}_{k \sim \text{unif}(1, K), s\sim p^{\mu}, a\sim \mu^{(k)}_{i}}[R_{i}(s,a)]$$
   * Since different sub-policies will be executed in different episodes, maintain a replay buffer $$\mathcal{D}^{(k)}_{i}$$ for each sub-policy $$\mu^{(k)}_{i}$$ for agent $$i$$.
-  * $$\nabla_{\theta^{k}_{i}}\mathcal{J}_{e}(\mu_{i}) = \frac{1}{K}\mathbb{E}_{\bold{x},a \sim \mathcal{D^{(k)}_i}} \big[ \nabla_{\theta^{(k)}_{i}} \mu^{(k)}_{i}(a_{i}|o_{i}) \nabla_{a_{i}}Q^{\mu}_{i}(\bold{x}, a_{1}, \cdots, a_{N})|_{a_{i} = \mu^{(k)}_{i}(o_{i})} \big]$$
+  * $$\nabla_{\theta^{k}_{i}}\mathcal{J}_{e}(\mu_{i}) = \frac{1}{K}\mathbb{E}_{x,a \sim \mathcal{D^{(k)}_i}} \big[ \nabla_{\theta^{(k)}_{i}} \mu^{(k)}_{i}(a_{i}|o_{i}) \nabla_{a_{i}}Q^{\mu}_{i}(x, a_{1}, \cdots, a_{N})|_{a_{i} = \mu^{(k)}_{i}(o_{i})} \big]$$
 
 
 
