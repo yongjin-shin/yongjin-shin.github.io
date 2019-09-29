@@ -127,7 +127,7 @@ tags:
 
 ## Expreiments
 
-![maddpg](../../../../Desktop/maddpg.png)
+![maddpg](/assets/images/2019-09-28-Multi-Agent-Actor-Critic-for-Mixed-Cooperation-Competitive-Environments/maddpg.png)
 
 * Approximating other agents' policies works very well
 * Even KL divergenc is very high. <u>**Why?**</u>
