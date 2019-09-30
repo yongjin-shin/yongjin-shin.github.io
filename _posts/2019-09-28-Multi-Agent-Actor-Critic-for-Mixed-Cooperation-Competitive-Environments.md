@@ -9,7 +9,7 @@ tags:
 - Actor-Critic
 ---
 
-이 논문을 읽게 된 이유: Homogeneity와 Heterogeneity에 대한 고민. Policy Parameter를 Agent 간에 공유가 이루어질 경우에는 Homogenous한 가정 밖에 할 수 없다. 이것을 어떻게 깰 것인가? [PDF](https://arxiv.org/abs/1706.02275)
+이 논문을 읽게 된 이유: Homogeneity와 Heterogeneity에 대한 고민. Policy Parameter를 Agent 간에 공유가 이루어질 경우에는 Homogenous한 가정 밖에 할 수 없다. 이것을 어떻게 깰 것인가? NIPS 2017 [PDF](https://arxiv.org/abs/1706.02275)
 
 
 
@@ -108,8 +108,9 @@ tags:
   * This approximate policy is learned by maximizing the log probability of agent $$j$$'s actions, with [an entropy regularizer](http://proceedings.mlr.press/v97/ahmed19a.html): 
   $$\mathcal{L}(\phi^{j}_{i}) = -\mathbb{E}_{o_j, a_{j}}[\log{\hat{\mu}^{j}_{i}(a_j | o_j)} + \lambda H(\hat{\mu}^{j}_{i})]$$
     
+
   ​	→ Thus, $$\hat{y} = r_{i} + \gamma Q^{\mu'}_{i}(x', \hat{\mu'}^{1}_{i}(o_1), \cdots, \mu'_{i}(o_{i}), \cdots, \hat{\mu'}^{N}_{i}(o_{N}))$$
-    
+
     
 
 * ### Policy Ensembles:
@@ -127,6 +128,21 @@ tags:
 
 ![maddpg](/assets/images/2019-09-28-Multi-Agent-Actor-Critic-for-Mixed-Cooperation-Competitive-Environments/maddpg.png)
 
+
+
+![Screenshot from 2019-09-30 08-06-54](/assets/images/2019-09-28-Multi-Agent-Actor-Critic-for-Mixed-Cooperation-Competitive-Environments/Screenshot%20from%202019-09-30%2008-06-54.png)
+
+
+
 * Approximating other agents' policies works very well
 * Even KL divergenc is very high. <u>**Why?**</u>
 
+
+
+
+
+## ??
+
+* Policy가 각기 다르다면 Heterogenous하다고 할 수 있지 않을까?! 그렇다면 이 논문을 통해서 Heterogenous한 agent 사이에서 communication없이도 학습이 가능함을 알 수 있다.
+* 물론, Learning에서 centralization이 가능하다는 상황이 전제되지만. 그리고 앙상블 vs Single 실험이 있었는데, 이런 식으로 학습된 두 모델을 비교하는게 재미있을 것 같다.
+* 하지만, 저자는 $$N$$에 linear하게 compuation이 증가할 것이라고 하는데, 정말 그러한가? 필요한 파라미터만 해도 2배 정도 더 필요하고, 데이터는 $$\times N$$인데. 일단 전체적으로 모델의 사이즈와 모델을 학습하기 위한 컴퓨팅 파워가 엄청 늘어나버리는 느낌이다.

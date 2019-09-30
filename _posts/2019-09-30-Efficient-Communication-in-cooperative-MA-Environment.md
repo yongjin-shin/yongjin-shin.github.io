@@ -1,5 +1,5 @@
 ---
-title: "Multi Agent Actor-Critic for Mixed Cooperation-Competitve Environments"
+title: "Efficient Communication in cooperative Multi Agent Environment"
 usemathjax: true
 
 categories:
@@ -9,7 +9,7 @@ tags:
 - Communication
 ---
 
-이 논문을 읽게 된 이유: Communication 최근 논문 서칭 중 발견한 논문. [PDF](http://www.ifaamas.org/Proceedings/aamas2019/pdfs/p2321.pdf)
+이 논문을 읽게 된 이유: Communication 최근 논문 서칭 중 발견한 논문. AAMAS 2019 [PDF](http://www.ifaamas.org/Proceedings/aamas2019/pdfs/p2321.pdf)
 
 
 
