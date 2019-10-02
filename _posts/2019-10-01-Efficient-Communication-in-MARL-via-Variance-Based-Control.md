@@ -61,7 +61,7 @@ tags:
 
 ### Network
 
-![Screenshot from 2019-10-01 06-51-33](../assets/images/2019-10-01-Efficient-Communication-in-MARL-via-Variance-Based-Control/Screenshot%20from%202019-10-01%2006-51-33.png)
+![main](/assets/images/2019-10-01-Efficient-Communication-in-MARL-via-Variance-Based-Control/main.png)
 
 * Local Action Generator
 
@@ -102,7 +102,7 @@ tags:
 
 ### Loss Fuction
 
-![Screenshot from 2019-10-01 06-50-53](../assets/images/2019-10-01-Efficient-Communication-in-MARL-via-Variance-Based-Control/Screenshot%20from%202019-10-01%2006-50-53.png)
+![mixing](/assets/images/2019-10-01-Efficient-Communication-in-MARL-via-Variance-Based-Control/mixing.png)
 
 * Employ a mixing network to aggregate the action-value funtion $$Q_{i}(o^{t}_{i}, h^{t-1}_{i}, a^{t}_{i})$$ to yield $$Q_{tot}(o_{t}, h_{t-1}, a_{t})$$
 
@@ -116,7 +116,7 @@ tags:
 
 ### Communication Protocol Design
 
-![Screenshot from 2019-10-01 07-03-22](../assets/images/2019-10-01-Efficient-Communication-in-MARL-via-Variance-Based-Control/Screenshot%20from%202019-10-01%2007-03-22.png)
+![protocol](/assets/images/2019-10-01-Efficient-Communication-in-MARL-via-Variance-Based-Control/protocol.png)
 
 
 
@@ -132,19 +132,15 @@ tags:
 
 ## Experiments
 
-![Screenshot from 2019-10-01 07-25-27](../assets/images/2019-10-01-Efficient-Communication-in-MARL-via-Variance-Based-Control/Screenshot%20from%202019-10-01%2007-25-27.png)
+![result](/assets/images/2019-10-01-Efficient-Communication-in-MARL-via-Variance-Based-Control/result.png)
 
 * VBC achieves a similar performance as FComm and even outplays FComnm for some tasks. 
   * **This is because a fair amount of communication between the agents are noisy and redundant.**
   * By eliminating these undesired messages, VBC is able to achieve both communication efficiency and performance gain.
 
+![overhead](/assets/images/2019-10-01-Efficient-Communication-in-MARL-via-Variance-Based-Control/overhead.png)
 
-
-![Screenshot from 2019-10-01 07-30-45](../assets/images/2019-10-01-Efficient-Communication-in-MARL-via-Variance-Based-Control/Screenshot%20from%202019-10-01%2007-30-45.png)
-
-![Screenshot from 2019-10-01 07-41-29](../assets/images/2019-10-01-Efficient-Communication-in-MARL-via-Variance-Based-Control/Screenshot%20from%202019-10-01%2007-41-29.png)
-
-
+![overhead2](/assets/images/2019-10-01-Efficient-Communication-in-MARL-via-Variance-Based-Control/overhead2.png)
 
 
 
@@ -156,6 +152,5 @@ tags:
 
 * SchedNet보다 Overhead에 있어서 좀 더 유연한 장점이 존재한다.
 * 그치만 (IC3Net+) TarMAC 이랑 비교를 좀 해보면 좋을텐데.
-* 간단한 Variance를 구하는 것(사실은 그냥 뺄셈)으로 좋은 시도를 한 것 같다. 물론 variance를 정확히 표현하지 못하긴 했지만 정보 자체의 quality나 impact를 이용한 논문으로 처음이지 않을까 싶다.
-* 왜냐하면 다른 논문들은 그냥 connection을 네트워크가 알아서 찾도록 만들었는데, 얘네는 좀 더 구조화를 시도했다는 점이 존재하기 때문이다.
-* 좀 더 발전시키고 싶은 방향인 것 같다. 그냥 단순히 연결시키는 것 이상의 value가 있는 것 같으므로.
+* 간단한 Variance를 구하는 것(사실은 그냥 뺄셈)으로 좋은 시도를 한 것 같다. 물론 variance를 정확히 표현하지 못하긴 했지만 정보 자체의 quality나 impact를 이용한 논문으로 처음이지 않을까 싶다. 
+* 왜냐하면 다른 논문들은 그냥 connection을 네트워크가 알아서 찾도록 만들었는데, 얘네는 좀 더 구조화를 시도했다는 점이 존재하기 때문이다. 구조화를 시도했다는 부분은, 메세지 자체가 measure(dot product or L2 norm)를 계산하는데 이용되지 않았고, 메세지의 '효과(Q-value)'가 measure(variance)의 대상이 되었다는 점이다. '메세지는 그저 도울 뿐'이 아니라 더 멀리 떨어진 케이스인 듯 싶다. 어찌되었든 메세지의 정보에 대해서 직접적으로 파고든 내용은 아니었지만, 메세지의 효과에 대해서는 고민을 할 수 있는 논문인 것 같다.
