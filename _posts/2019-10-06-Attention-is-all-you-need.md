@@ -21,11 +21,26 @@ tags:
 
 
 
+## Why Self-Attention
+
+* The total computational complexity per layer
+* The amount of computation that can be parallelized
+* The path length between long-range dependencies in the network
+
+
+
+![compare](/assets/images/2019-10-06-Attention-is-all-you-need/compare.png)
+
+
+
+
+
 ## Note
 
 * **Self Attention**
-  - In Self-Attention or Key=Value=Query, if the input is, for example, a sentence, then each word in the sentence needs to undergo Attention computation. The goal is to learn the dependencies between the words in the sentence and use that information to capture the internal structure of the sentence.
-
+  
+- In Self-Attention or Key=Value=Query, if the input is, for example, a sentence, then each word in the sentence needs to undergo Attention computation. The goal is to learn the dependencies between the words in the sentence and use that information to capture the internal structure of the sentence.
+  
 * **Residual Network**
 
   * When deeper networks are able to start converging, a *degradation problem*has been exposed: with the network depth increasing, accuracy gets saturated (which might be unsurprising) and then degrades rapidly. Unexpectedly, such degradation is not caused by overfitting, and adding more layers to a suitably deep model leads to higher training error.
@@ -39,24 +54,17 @@ tags:
   * It is easier to optimize this residual function F(x) compared to the original mapping M(x). 
     $$M(x) = F(x) + x$$ or $$y = F(x) + x$$
 
-질문.
-
-- 단순히 distance를 계산하는 것 이상으로 attention은 어떤 강점이 존재하는가??
 
 
+## +
 
-내가 할 수 있는 문제제기.
-
-- 확률 모델링은 할 수 없을까?
-  - Attention
-  - Signaling
-- 왜 message를 먼저 만드는가?
-  - Signaling을 통해 overhead를 줄이고 message를 잘 만들자.
-  - 내가 가진 의문은...어떻게 시그널링을 잘 날릴 수 있을까?
-    - 시그널을 잘 만들기만 해도 보다 쉽게 모델링을 할 수 있다.
-    - q-value가 애매한 아이들은 왜 안 좋을까? 단순히 q-value를 올린다고 다 좋아지나??? 
-      ==> 논문 찾아볼 것. Q-value가 높으면 다 좋은건가? : 좋은 모델이라면 당연히 그래야겠지?
-  - 여기에 Attention을 끼워넣을 수 있을까?
+문제를 확실히 정하고, 그 문제를 해결하기 위한 구조를 만들고, 결과에는 앞선 문제들을 해결한 결과가 나온다. 그리고 왜 그런 모델이어야만 하는지도 문제랑 같이 연결시켰다. 짜임이 좋은 논문이고, 아이디어도 오리지널리티가 분명하고, 더불어 결과도 뛰어난 논문. 진짜 좋은 논문이다.
 
 
+
+문제를 확실하게 fix를 해야한다. 기존에는 어떤 것이 안 되어 있었고, 그게 왜 필요하고, 그래서 어떻게 수정할 수 있는지가 분명해야 한다. 그리고 결과도 좋아야만 한다.
+
+
+
+요리(개념)는 많이 만들지 말고, 딱 하나만. 그러나 그걸 맛있게 만들기 위해서는 양념(기존 방법론)은 밸런스에 맞춰서 이것저것 들어가면 된다.
 
