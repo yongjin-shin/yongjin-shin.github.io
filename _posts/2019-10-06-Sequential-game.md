@@ -52,7 +52,9 @@ tags:
 
 * SE(Sequential Equilibrium)
   : NE와 SPE 사이의 그 어드메. 
-  * 모든 Information Set에 대해서 주어진 Strategy $$S$$와 확률 분포 $$\mu(\cdot|I)$$, (Belief, 이전 Agent가 무엇을 선택할지에 대한 확률분포)가 1)Sequentially Rational, 2)Consistency를 만족할 때, 이 $$S$$는 SE이다.
+  * 모든 Information Set에 대해서 주어진 Strategy $$S$$와 확률 분포 $$\mu(\cdot|I)$$, 
+    (Belief, 이전 Agent가 무엇을 선택할지에 대한 확률분포)가 
+    1)Sequentially Rational, 2)Consistency를 만족할 때, 이 $$S$$는 SE이다.
     * Sequentially Rational은 주어진 확률 분포 $$\mu(\cdot |I)$$를 이용해서 기대값이 더 높은 방향을 선택했을 때 $$S$$와 동일한가?
       (내 Belief를 기반으로 선택한 전략이 최적의 전략과 동일한가?)
     * Consistency는 주어진 $$S$$로 확률 분포 $$\mu(\cdot |I)$$를 다시 재현해낼 수 있을까? (Bayes Rule을 이용해서)
