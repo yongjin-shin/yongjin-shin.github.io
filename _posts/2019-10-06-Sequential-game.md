@@ -3,10 +3,9 @@ title: "Sequential Games with Complete Information"
 usemathjax: true
 
 categories:
-- review
+- summary
 tags:
-- Attention
-- Transformer
+- MAS
 ---
 
 중간고사 대비 Game Theory 정리 [PDF](https://arxiv.org/abs/1706.03762)
