@@ -62,7 +62,7 @@ tags:
 
 
 
-Nash Equilibrium $$ \subset $$ Sequential Equilibrium $$ \subset $$ Subgame-perfect Equilibrium
+Subgame-perfect Equilibrium $$ \subset $$ Sequential Equilibrium $$ \subset $$ Nash Equilibrium
 
 
 
