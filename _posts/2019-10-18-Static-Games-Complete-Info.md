@@ -110,11 +110,7 @@ tags:
 
 ### Correlated Equilibrium
 
-* 
-
-
-
-## Computing Solution Concepts
-
-
+* 옆에서 어떤 사람이 동전 던지기를 해서 우리가 해야할 행동들을 규정해주고,
+* 만약 어떤 누구라도 이것을 어겼을 때, 지켰을 때보다 얻는 이득이 적다면 Correlated Equilibrium이다. 
+* NE $$\subset$$ CE
 
