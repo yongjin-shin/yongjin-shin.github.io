@@ -10,13 +10,13 @@ tags:
 
 
 
-읽은 논문들 간단하게 요약 정리. 중요한 논문은 따로 정리할 것.
+읽은 논문들 간단하게 요약 정리. 중요한 논문은 따로 정리할 것. 아직 평가할 깜냥이 아니므로 나중에 안 봐도 되는 것들만 구별하기 위해서 별은 세개까지만.
 
 
 
 ## Embedding
 
-**별별별별**별 [World Models. NIPS 2018]((https://arxiv.org/abs/1803.10122)):
+**별별별** [World Models. NIPS 2018]((https://arxiv.org/abs/1803.10122)):
 
 이제는 너무 당연해져버려서 식상해져버린 논문이랄까? RNN으로 미래를 예측하고(Recurrent 구조를 만들고), VAE로 추상화된 현실을 반영하고(Embedding을 넣고) , 이를 Actor의 input으로 넣는다. 이 논문은 pre-trained VAE와 LSTM를 사용(1e4 roll out, random action)한다. VAE -> LSTM 순서로. LSTM은 
 $$p(z_{t+1}|a_{t}, z_{t}, h_{t})$$
@@ -26,6 +26,22 @@ $$p(z_{t+1}|a_{t}, z_{t}, h_{t})$$
 
 
 
-**별**별별별별 [Scalable Deep MARL via observation Embedding and Parameter Noise. IEEE 2019]((https://ieeexplore.ieee.org/abstract/document/8698861)):
+**별**별별 [Scalable Deep MARL via observation Embedding and Parameter Noise. IEEE 2019]((https://ieeexplore.ieee.org/abstract/document/8698861)):
 
 Global한 View에 대한 paper를 찾다가 발견한 논문. Global view는 그냥 MLP. Parameter noise(TD3였나?)를 사용함.  여튼 Embedding에 대한 분석도 없었고, 내 기준에선 novelty는 없음. MADDPG보다 Scaling에서 유리하다에서 끝. 실험도 몇 개 안함. (MAAC도 똑같은 의견을 제시하지만 거기서는 Attention도 사용했고, 실험도 더 풍부했음. Baseline도 다양하고 Attention에서 어떤 효과가 나오는지 잘 나타남. 근데 솔직히...MAAC 다시 읽어봐야지. Attention 쓴게 그렇게 대단한건지..) 
+
+
+
+## Causality
+
+**별별별** [Counterfactual Multi-Agent Poligy Gradients](https://arxiv.org/abs/1705.08926)
+
+**별별별** [Social Influence as Intrinsic Motivation for Multi-Agent Deep RL](https://arxiv.org/abs/1810.08647)
+
+
+
+
+
+## Opponent Modeling
+
+**별별별** [Probabilistic Recursive Reasoning for Multi-Agent Reinforcement Learning](https://openreview.net/pdf?id=rkl6As0cF7)
