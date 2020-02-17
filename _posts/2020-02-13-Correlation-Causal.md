@@ -21,7 +21,8 @@ $$p(A|B)$$
 
 
 
-<center><img src="../assets/images/2020-02-13-Correlation-Causal/doing.png" alt="doing" style="zoom:50%;" /></center>
+<center><img src="/assets/images/2020-02-13-Correlation-Causal/doing.png" alt="doing" style="zoom:50%;" /></center>
+
 그림출처 [^1]
 
 
