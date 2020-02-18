@@ -1,6 +1,8 @@
 ---
 title: "Efficient Communication in MARL via Variance Based Control"
 usemathjax: true
+toc: true
+toc_sticky: true
 
 categories:
 - review

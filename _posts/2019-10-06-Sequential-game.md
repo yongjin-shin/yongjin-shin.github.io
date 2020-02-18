@@ -1,6 +1,8 @@
 ---
 title: "Sequential Games with Complete Information"
 usemathjax: true
+toc: true
+toc_sticky: true
 
 categories:
 - summary

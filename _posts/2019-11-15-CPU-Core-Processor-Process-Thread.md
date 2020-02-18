@@ -1,6 +1,8 @@
 ---
 title: "CPU, Core, Processor, Process, Thread"
 usemathjax: true
+toc: true
+toc_sticky: true
 
 categories:
 - Programming

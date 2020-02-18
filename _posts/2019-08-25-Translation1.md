@@ -1,6 +1,8 @@
 ---
 title: "[번역] 성공하는 대학원생의 3가지 자질: 끈기, 고집 그리고 설득력"
 exerpt: 끈기, 고집 그리고 설득력
+toc: true
+toc_sticky: true
 
 categories:
 - 번역

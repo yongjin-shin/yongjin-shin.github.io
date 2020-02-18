@@ -1,6 +1,8 @@
 ---
 title: "Efficient Communication in cooperative Multi Agent Environment"
 usemathjax: true
+toc: true
+toc_sticky: true
 
 categories:
 - review

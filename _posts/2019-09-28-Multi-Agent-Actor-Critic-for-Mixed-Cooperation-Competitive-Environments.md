@@ -1,6 +1,8 @@
 ---
 title: "Multi Agent Actor-Critic for Mixed Cooperation-Competitve Environments"
 usemathjax: true
+toc: true
+toc_sticky: true
 
 categories:
 - review
@@ -95,12 +97,12 @@ tags:
   *(NOTE: $$'$$ means a delayed version, say $$\mu'$$ means the target policy network and $$x'$$ is sampled from the target networks. )*
 
 
-  
+
   8) Updated as:
   		$$\mathcal{L}(\theta_{i}) = \mathbb{E}_{x,a,r,x'}\big[ \big( Q^{\mu_{i}}(x, a_{1}, \cdots, a_{N})-y \big)^{2} \big]$$
   		$$y = r_{i} + \gamma Q^{\mu'}_{i}(x', a'_{1}, \cdots, a'_{N})|_{a'_{j}=\mu'_{j}(o_j)}$$ where $$\mu' = \{ \mu_{\theta'_{1}}, \cdots, \mu_{\theta'_{N}} \}$$ is the set of target plicies with delayed parameteres $\theta^{'}_{i}}$
 
-  
+
   		
 
   *→ 음미를 해보자면, 일반적인 DDPG에서는 $$\theta, \theta'$$를 알아야 하는데 어차피 이 값들은 나 자신(this.agent)이므로 당연히 알고 있어야 하는 파라미터이다. 그런데 여기서는 다른 Agent의 private한 정보를 참조해야만 업데이트가 가능하다. 왜냐? $$a'$$를 만들어내야 $$y$$를 구할 수 있기 때문! 그렇기 때문에 여기서는 Centralized Learning이라 주장한다. 애당초 Multiagent에서 남들의 정보를 안다는 가정 자체가 말이 안되므로, Learning할 때까지만은 Centralized하게 관리하는 형식으로 가는듯 하다. 재미있는 점은 마치 model-based처럼 외부의 환경을 아는듯 학습을 하지만, 그럼에도 불구하고 학습하는 대상은 완전한 환경(environment)가 아니라 내 시점에서는 환경처럼 보이는 다른 Agent의 속성인 것이다.*

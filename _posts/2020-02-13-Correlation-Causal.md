@@ -1,6 +1,8 @@
 ---
 title: "Correlation vs Causal"
 usemathjax: true
+toc: true
+toc_sticky: true
 
 categories:
 - review
@@ -22,7 +24,6 @@ $$p(A|B)$$
 
 
 <center><img src="/assets/images/2020-02-13-Correlation-Causal/doing.png" alt="doing" style="zoom:50%;" /></center>
-
 그림출처 [^1]
 
 
@@ -57,6 +58,8 @@ $$p(Z=z|X=x, Y=y) \neq p(Z=z|X=x, Y=y') = p_{do(Y=y')}(Z=z|X=x)$$
 이 부분은 조금 더 공부를 해야될 것 같다.
 
 
+
+## Reference
 
 [^1]: https://fabiandablander.com/r/Causal-Inference.html
 [^2]: https://www.inference.vc/causal-inference-2-illustrating-interventions-in-a-toy-example/

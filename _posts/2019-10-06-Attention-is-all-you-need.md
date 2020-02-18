@@ -1,6 +1,8 @@
 ---
 title: "Attention Is All You Need"
 usemathjax: true
+toc: true
+toc_sticky: true
 
 categories:
 - review
