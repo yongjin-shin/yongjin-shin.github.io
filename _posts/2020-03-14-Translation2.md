@@ -6,7 +6,7 @@ toc_sticky: true
 
 categories:
 - 번역
-tags
+tags:
 - tips
 - note taking
 ---
