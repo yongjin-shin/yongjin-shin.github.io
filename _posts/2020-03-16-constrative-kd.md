@@ -29,7 +29,7 @@ Knowledge Distillation에서 Contrastive learning을 활용한 CKD 모델
 
 
 
-## 질문
+## 생각
 
 * 일단, 모델 보고 있자면, 이렇게 많이 때려박아서 쓰는건 좀 흥미가 떨어진다. 파라미터를 많이 써서 성능을 올리는건 아름답지가 않다고나 할까. 라고 생각하였으나, ensemble은 크게 비중이 없었음.
 * Constrative Learning 관련 읽어볼 자료: Aaron van den Oord, Yazhe Li, and Oriol Vinyals. Representation learning with contrastive predictive coding. arXiv preprint arXiv:1807.03748, 2018
